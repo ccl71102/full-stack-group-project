@@ -6,7 +6,9 @@ import PizzaProvider from './context/PizzaProvider.js'
 
 ReactDOM.render(
 <BrowserRouter>
-    <App />,
-</BrowserRouter>, 
+    <PizzaProvider>
+        <App />
+    </PizzaProvider>
+</BrowserRouter>,
 document.getElementById("root"));
 
