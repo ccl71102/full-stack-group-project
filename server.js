@@ -13,7 +13,7 @@ mongoose.connect("mongodb://localhost:27017/pizzadb",
     useFindAndModify: false,
     useCreateIndex: true
 })
-.then( () => console.log("Reticulating pies..."))
+.then( () => console.log("Fetching ingredients from storage"))
 .catch( err => console.log(err));
 
 app.use("/pizza", require("./routes/pizzaRouter.js"));

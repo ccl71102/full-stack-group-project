@@ -12,8 +12,8 @@ const pizzaSchema = new Schema({
     },
     size: {
         type: String,
-        enum: ['12"', '14"', '16"'],
-        default: '12"'
+        enum: ['12', '14', '16'],
+        default: '12'
     },
     sauce: {
         type: String,
