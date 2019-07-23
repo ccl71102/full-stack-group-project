@@ -1,9 +1,9 @@
 import React from "react";
-import Home from "./Home.js"
-import About from "./About.js"
-import Navbar from "./Navbar.js"
+import Home from "./components/Home.js"
+import About from "./components/About.js"
+import Navbar from "./components/Navbar.js"
 import { Switch, Route } from "react-router-dom"
-import Axios from "axios";
+
 
 
 const App = () => {
