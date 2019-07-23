@@ -10,14 +10,14 @@ pizzaRouter.get("/", (req, res, next) => {
             next(err);
         } else
             res.status(200).send(pizzas);
-    })
-})
+    });
+});
 
 pizzaRouter.get("/:_id", (req, res, next) => {
 
     Pizza.findOne({_id: req.params._id}, (err, foundPizza) => {
         if(err) {
-            res.status(500),
+            res.status(500);
             next(err);
         } else 
             res.status(200).send(foundPizza);
@@ -63,6 +63,5 @@ pizzaRouter.delete("/:_id", (req, res, next) => {
             });
     });
 });
-
 
 module.exports = pizzaRouter

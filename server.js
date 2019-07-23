@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 7100
 app.use(morgan("dev"));
 app.use(express.json());
 
-mongoose.connect("mongodb://localhost:27017/pizzadb",
+mongoose.connect("mongodb://localhost:27017/oven",
 {
     useNewUrlParser: true,
     useFindAndModify: false,
