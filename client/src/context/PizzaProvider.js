@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
-import axios from 'axios'
+import React, { Component } from 'react';
+import axios from 'axios';
 
 const PizzaContext = React.createContext ()
 
 class PizzaProvider extends Component {
     constructor(){
-        super()
+        super();
         this.state = {
             pizzas: []      
         } 
@@ -14,12 +14,12 @@ class PizzaProvider extends Component {
     componentDidMount () {
         axios.get("/pizza")
           .then(res => {
-            console.log(res.data)
+            console.log(res.data);
             this.setState({
               pizzas: res.data
             })
           })
-          .catch(err => console.log(err))
+          .catch(err => console.log(err));
       }
 
     render(){
@@ -27,8 +27,16 @@ class PizzaProvider extends Component {
             <PizzaContext.Provider value={{pizzas: this.state.pizzas}}>
                 { this.props.children }
             </PizzaContext.Provider>
-        )
+        );
     }
 }
 
-export default PizzaProvider
+export const withPizza = Component => props => (
+
+        <PizzaContext.Consumer>
+            {value => <Component {...value} {...props}/> }
+        </PizzaContext.Consumer>
+);
+
+export default PizzaProvider;
+
