@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/ccl71102/full-stack-group-project#readme",
   "dependencies": {
+    "axios": "^0.19.0",
     "express": "^4.17.1",
     "mongoose": "^5.6.6",
     "morgan": "^1.9.1",
