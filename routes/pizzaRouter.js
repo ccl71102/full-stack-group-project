@@ -2,15 +2,43 @@ const express = require("express");
 const pizzaRouter = express.Router();
 const Pizza = require("../models/pizza.js");
 
+
 pizzaRouter.get("/", (req, res, next) => {
 
-    Pizza.find((err, pizzas)=>{
-        if(err){
-            res.status(500);
-            next(err);
-        } else
-            res.status(200).send(pizzas);
-    });
+    if(req.query.sauce && req.query.size) {
+        Pizza.find({size: req.query.size, sauce: req.query.sauce}, (err, pizzas) => {
+            if(err){
+                res.status(500);
+                next(err);
+            } else 
+                res.status(200).send(pizzas);
+        });
+    }
+    else if(req.query.sauce) {
+        Pizza.find({sauce: req.query.sauce}, (err, pizzas) => {
+            if(err){
+                res.status(500);
+                next(err);
+            } else 
+                res.status(200).send(pizzas);
+        });
+    }
+    else if(req.query.size) {
+        Pizza.find({size: req.query.size}, (err, pizzas) => {
+            if(err){
+                res.status(500);
+                next(err);
+            } else 
+                res.status(200).send(pizzas);
+        });
+    } else
+        Pizza.find((err, pizzas) => {
+            if(err){
+                res.status(500);
+                next(err);
+            } else 
+                res.status(200).send(pizzas);
+        });
 });
 
 pizzaRouter.get("/:_id", (req, res, next) => {
