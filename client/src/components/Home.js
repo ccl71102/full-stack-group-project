@@ -1,8 +1,10 @@
 import React from 'react'
+import DemoCarousel from './Carousel.js'
 
 const Home = (props) => {
     return (
         <div className="homeDiv">
+            <DemoCarousel autoPlay={false} />
             <h1>Full Stack Pizza</h1>
             <p>Lorem ipsum dolor amet vaporware authentic helvetica, 3 wolf moon 
                 cliche chartreuse brooklyn heirloom normcore celiac mixtape poke 
