@@ -17,7 +17,7 @@ const pizzaSchema = new Schema({
     },
     sauce: {
         type: String,
-        enum: ["tomato", "white", "alfredo", "pesto", "bbq"],
+        enum: ["tomato", "white", "alfredo", "pesto", "bbq", "worcestershire"],
         default: "tomato"
     },
     price: {
@@ -26,7 +26,7 @@ const pizzaSchema = new Schema({
     },
     toppings: {
         type: [String],
-        enum: ["mozzarella cheese", "feta cheese", "cheddar cheese", "ricotta cheese", "bleu cheese", "goat cheese", "swiss cheese", "bacon", "pepperoni", "ham", "salami", "canadian bacon", "anchovies", "steak", "italian sausage", "meatballs", "anchovies", "tomatoes", "onions", "green olives", "black olives", "green peppers", "mushrooms", "spinach", "broccoli", "pineapple", "garlic", "jalapenos", "artichoke hearts", "eggplant"],
+        enum: ["mozzarella cheese", "feta cheese", "cheddar cheese", "ricotta cheese", "bleu cheese", "goat cheese", "swiss cheese", "romano cheese", "bacon", "pepperoni", "ham", "salami", "canadian bacon", "anchovies", "steak", "italian sausage", "meatballs", "anchovies", "tomatoes", "onions", "green olives", "black olives", "green peppers", "mushrooms", "spinach", "broccoli", "pineapple", "garlic", "jalapenos", "artichoke hearts", "eggplant"],
         default: "mozzarella cheese"
     },
     imgUrl: {
