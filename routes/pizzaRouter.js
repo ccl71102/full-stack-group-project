@@ -41,6 +41,44 @@ pizzaRouter.get("/", (req, res, next) => {
         });
 });
 
+pizzaRouter.get("/pricing", (req, res, next) => {
+
+    if(req.query.price && req.query.sort) {
+        Pizza.find()
+        .where("price")
+        .lte(req.query.price)
+        .sort({price: req.query.sort})
+        .exec((err, pizzas) => {
+            if(err){
+                res.status(500);
+                next(err);
+            } else 
+                res.status(200).send(pizzas);
+        });
+
+    } else if(req.query.price) {
+        Pizza.find()
+        .where("price")
+        .lte(req.query.price)
+        .sort({price: -1})
+        .exec((err, pizzas) => {
+            if(err){
+                res.status(500);
+                next(err);
+            } else 
+                res.status(200).send(pizzas);
+        });
+    } else if(req.query.sort) {
+        Pizza.find((err, pizzas) => {
+            if(err){
+                res.status(500);
+                next(err);
+            } else 
+                res.status(200).send(pizzas);
+        }).sort({price: req.query.sort});
+    }
+})
+
 pizzaRouter.get("/:_id", (req, res, next) => {
 
     Pizza.findOne({_id: req.params._id}, (err, foundPizza) => {
