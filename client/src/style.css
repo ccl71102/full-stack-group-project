@@ -25,13 +25,17 @@ nav{
     margin-left: 35px;
 }
 
+/* carousel {
+    height: 50vw
+} */
+
 .homeDiv{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-content: center;
     text-align: center;
-    height: 85vh;
+    /* height: 85vh; */
     background-color: rgba(47, 138, 43, 0.836);
     color: rgb(255, 255, 255);
 }
