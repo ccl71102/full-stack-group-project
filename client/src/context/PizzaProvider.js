@@ -12,14 +12,14 @@ class PizzaProvider extends Component {
     }
 
     componentDidMount () {
-        axios.get("/pizza")
-          .then(res => {
-            console.log(res.data);
-            this.setState({
-              pizzas: res.data
+            axios.get("/pizza?size=12")
+            .then(res => {
+              console.log(res.data);
+              this.setState({
+                pizzas: res.data
+              })
             })
-          })
-          .catch(err => console.log(err));
+            .catch(err => console.log(err));
     }
 
     getAllPizzas = size => {
