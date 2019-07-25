@@ -14,9 +14,9 @@ const App = (props) => {
     <div>
       <Navbar />
       <Switch>
-        <Route exact path="/" render={routerProps => <Home {...routerProps}/>}/>
-        <Route path="/about" render={routerProps => <About {...routerProps}/>}/>
-        <Route path="/menu" render={routerProps => <Menu {...routerProps}/>}/>
+        <Route exact path="/" render={routerProps => <Home {...routerProps} {...props}/>}/>
+        <Route path="/about" render={routerProps => <About {...routerProps} {...props} />}/>
+        <Route path="/menu" render={routerProps => <Menu {...routerProps} {...props}/>}/>
       </Switch>
     </div>
   )
