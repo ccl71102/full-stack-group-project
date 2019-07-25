@@ -25,9 +25,22 @@ nav{
     margin-left: 35px;
 }
 
-/* carousel {
-    height: 50vw
-} */
+.carouseldiv {
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.863)
+}
+
+img {
+    
+    height: 50vh;
+    width: 100%
+}
+
+.carousel {
+    width: 60vw;
+    
+}
 
 .homeDiv{
     display: flex;
