@@ -6,10 +6,9 @@ import {withPizza} from "../context/PizzaProvider"
 const Menu = (props) => {
     
     const mappedPizzas = props.pizzas.map(pizza => <div key={pizza._id}>
-        
+        <h1 className="mappedTitle">{pizza.title}</h1>
             <div className="mappedDiv">
-                <div>
-                    <h1 className="mappedTitle">{pizza.title}</h1>
+                <div>    
                     <div style={{backgroundImage: `url(${pizza.imgUrl})`}} className="pizzaImg"></div>
                 </div>
                 <div>

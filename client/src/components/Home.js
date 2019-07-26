@@ -5,22 +5,19 @@ const Home = (props) => {
     return (
         <div className="homeDiv">
             <DemoCarousel />
-            <h1>Full Stack Pizza</h1>
-            <p>Lorem ipsum dolor amet vaporware authentic helvetica, 3 wolf moon 
-                cliche chartreuse brooklyn heirloom normcore celiac mixtape poke 
-                stumptown poutine. Af microdosing skateboard, banjo squid wayfarers 
-                tumblr tattooed venmo pinterest pitchfork. Gastropub ugh whatever, 
-                portland photo booth scenester enamel pin hella shabby chic shoreditch 
-                asymmetrical dreamcatcher. Post-ironic VHS microdosing, palo santo 
-                shoreditch cold-pressed chicharrones man bun whatever.</p>
-            <p>Pinterest 3 wolf moon prism, artisan la croix hell of vegan you 
-                probably haven't heard of them typewriter venmo tofu taiyaki. 
-                Narwhal locavore etsy, swag selvage tousled ennui kickstarter blue 
-                bottle hashtag. Truffaut semiotics kombucha, pork belly viral iPhone 
-                gastropub shaman microdosing unicorn fashion axe paleo. Forage migas 
-                literally vape meditation vice twee bicycle rights copper mug lyft pug 
-                iPhone green juice knausgaard. Leggings skateboard +1 chartreuse 
-                glossier, chia photo booth marfa shoreditch lo-fi.</p>    
+            <div className="homeText">
+                <h1>Full Stack Pizza</h1><br/>
+                <p>Three full stack coders opened Full Stack Pizza on July 26, 2019.</p><br/>
+                <p>Each Pizza is hancrafted by the master himself, Eric Mauerman, 
+                    who spent over 29 years in Florence Italy mastering his pizza. 
+                    With the two business owners, Carlos Colon and Moroni Allred, 
+                    lending their support in the Full Stack kitcken. Many of the 
+                    ingredients are imported from Italy and forms a taste that can't be 
+                    replicated. In his custom brick oven, Eric has articulated 
+                    each mouthwatering pizza.</p><br/> 
+                <p>Today, the three full stack coders continue to operate in the Salt 
+                    Lake City downtown area</p>   
+            </div>
         </div>
     )
 }
