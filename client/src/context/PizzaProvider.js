@@ -24,7 +24,7 @@ class PizzaProvider extends Component {
 
     getAllPizzas = size => {
 
-        if(size !== "") {
+        if(size !== "" && size !== "undefined") {
             axios.get(`/pizza?size=${size}`)
             .then(res => {
                 console.log(res.data);
@@ -58,8 +58,8 @@ class PizzaProvider extends Component {
 
     getAllPizzasByPrice = (price, sort) => {
 
-        if(price !== "" && sort !== "") {
-            axios.get(`/pricing?price=${price}&sort=${sort}`)
+        if((price !== "" || price !== undefined) && (sort !== "" || sort !== "undefined")) {
+            axios.get(`/pizza/pricing?price=${price}&sort=${sort}`)
             .then(res => {
                 console.log(res.data);
                 this.setState({
@@ -67,8 +67,8 @@ class PizzaProvider extends Component {
                 });
             })
             .catch(err => console.log(err));
-        } else if(price !== "") {
-            axios.get(`/pricing?price=${price}`)
+        } else if(price !== "" || price !== "undefined") {
+            axios.get(`/pizza/pricing?price=${price}`)
             .then(res => {
                 console.log(res.data);
                 this.setState({
@@ -76,8 +76,8 @@ class PizzaProvider extends Component {
                 });
             })
             .catch(err => console.log(err));
-        } else if(sort !== "") {
-            axios.get(`/pricing?sort=${sort}`)
+        } else if(sort !== "" || sort !== "undefined") {
+            axios.get(`/pizza/pricing?sort=${sort}`)
             .then(res => {
                 console.log(res.data);
                 this.setState({
