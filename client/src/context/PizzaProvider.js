@@ -1,23 +1,23 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-const PizzaContext = React.createContext ()
+const PizzaContext = React.createContext();
 
 class PizzaProvider extends Component {
     constructor(){
         super();
         this.state = {
             pizzas: []      
-        } 
+        };
     }
 
-    componentDidMount () {
+    componentDidMount() {
             axios.get("/pizza?size=12")
             .then(res => {
               console.log(res.data);
               this.setState({
                 pizzas: res.data
-              })
+              });
             })
             .catch(err => console.log(err));
     }
@@ -30,7 +30,7 @@ class PizzaProvider extends Component {
                 console.log(res.data);
                 this.setState({
                     pizzas: res.data
-                })
+                });
             })
             .catch(err => console.log(err));
         }
@@ -40,10 +40,20 @@ class PizzaProvider extends Component {
                 console.log(res.data);
                 this.setState({
                     pizzas: res.data
-                })
+                });
             })
             .catch(err => console.log(err));
         }
+    }
+
+    getPizzaById = _id => {
+
+        axios.get(`/:${_id}`)
+        .then(res => {
+            console.log(res.data)
+            return res.data;
+        })
+        .catch(err => console.log(err));
     }
 
     getAllPizzasByPrice = (price, sort) => {
@@ -54,7 +64,7 @@ class PizzaProvider extends Component {
                 console.log(res.data);
                 this.setState({
                     pizzas: res.data
-                })
+                });
             })
             .catch(err => console.log(err));
         } else if(price !== "") {
@@ -63,7 +73,7 @@ class PizzaProvider extends Component {
                 console.log(res.data);
                 this.setState({
                     pizzas: res.data
-                })
+                });
             })
             .catch(err => console.log(err));
         } else if(sort !== "") {
@@ -72,11 +82,10 @@ class PizzaProvider extends Component {
                 console.log(res.data);
                 this.setState({
                     pizzas: res.data
-                })
+                });
             })
             .catch(err => console.log(err));
         }
-
     }
 
     render(){
@@ -85,7 +94,8 @@ class PizzaProvider extends Component {
                     {
                         pizzas: this.state.pizzas,
                         getAllPizzas: this.getAllPizzas,
-                        getAllPizzasByPrice: this.getAllByPrice
+                        getAllPizzasByPrice: this.getAllPizzasByPrice,
+                        getPizzaById: this.getPizzaById
                     }
                 }>
                 { this.props.children }
