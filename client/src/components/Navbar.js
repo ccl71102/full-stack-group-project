@@ -5,13 +5,13 @@ const Navbar = props => {
     return (
         <nav>
             <div className="contact">
-                <h5 className="contactInfo">Call: (111) 222 3333</h5>
-                <h5 className="contactInfo">Address: 7th Main 20W</h5>
+                <h5 className="contactInfo">Call: (801) 555-FSPZ</h5>
+                <h5 className="contactInfo">{"150 South State Street, Salt Lake City, UT 84111"}</h5>
             </div>
             <div>
                 <Link to="/" className="linkDiv">Home</Link>
                 <Link to="/menu" className="linkDiv">Menu</Link>
-                <Link to="/about" className="linkDiv">About</Link>   
+                <Link to="/order" className="linkDiv">Order</Link>   
             </div>
         </nav>
     )
