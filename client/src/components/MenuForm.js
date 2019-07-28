@@ -24,12 +24,16 @@ class MenuForm extends Component {
     handleSubmit=(e)=>{
         e.preventDefault()
         this.props.getAllPizzasByPrice(this.state.priceSort, -1)
+        this.setState({
+            priceSort: ""
+        })
     }
     render(){
         return(
                 <form onSubmit={this.handleSubmit}>
-                    <input type="text" className="menuInput" name="priceSort" onChange={this.handleChange} placeholder="input your top price" value={this.state.priceSort}/>
-                    <button type="submit">submit</button>
+                    <h3 className="formInstruct">To budget input your top price:</h3>
+                    <input type="text" className="menuInput" name="priceSort" onChange={this.handleChange} value={this.state.priceSort} maxLength="5" placeholder="Price (USD)"/>
+                    <button className="bugetButton" type="submit">budget!</button>
                 </form>
         )
     }
