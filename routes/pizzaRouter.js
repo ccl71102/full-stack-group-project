@@ -77,7 +77,7 @@ pizzaRouter.get("/pricing", (req, res, next) => {
                 res.status(200).send(pizzas);
         }).sort({price: req.query.sort});
     }
-})
+});
 
 pizzaRouter.get("/:_id", (req, res, next) => {
 
