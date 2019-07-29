@@ -2,7 +2,6 @@ const express = require("express");
 const pizzaRouter = express.Router();
 const Pizza = require("../models/pizza.js");
 
-
 pizzaRouter.get("/", (req, res, next) => {
 
     if(req.query.sauce && req.query.size) {
