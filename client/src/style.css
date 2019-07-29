@@ -260,6 +260,56 @@ nav{
         display: unset;
         color: white;
         font-size: 30px;
-        margin-right: 15px;
+        margin-right: 25px;
+    }
+
+
+    /* ** Home Page ** */
+    
+    img { 
+        height: 40vh;
+    }
+
+    .carousel {
+        width: 100vw; 
+    }
+    
+    .menuSorter{
+        flex-direction: column;
+    }
+
+    .formInstruct{
+        margin-top: 15px;
+    }
+
+    .sizePiont{
+        transform: rotate(-25deg)
+    }
+
+    .menuGrid{
+        display: unset;
+    }
+
+    .mappedDiv{
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding-bottom: 15px;
+    }
+    
+    .mappedTitle{
+        margin-top: 20px;
+        width: auto;
+        margin-left: 0;
+    }
+
+    .pizzaImg{
+        margin-left: 0;
+    }
+
+    .mappedDescription{
+        margin-top: 20px;
+        margin-left: 20px;
     }
 }
+
