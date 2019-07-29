@@ -15,7 +15,9 @@ const Menu = (props) => {
                 <div>
                     <h2 className="mappedDescription">{pizza.description}</h2>
                     <h4 className="mappedSize">{pizza.size} inches / ${pizza.price}</h4>
-                    <button className="orderButton">Order Now!</button>
+                    <button className="orderButton">Order Now!</button> 
+                    <span className="spacerText">or</span>
+                    <button className="addToCart">Add To Cart!</button>
                 </div> 
            </div>
         </div>)
@@ -29,7 +31,9 @@ const Menu = (props) => {
                     <button onClick={() => {props.getAllPizzas("16")}} className="sortButton">Size: 16 inches</button>
                     <MenuFrom getAllPizzasByPrice={props.getAllPizzasByPrice} {...props}/>
                 </div>
-                {mappedPizzas}
+                <div className="menuGrid">
+                    {mappedPizzas}
+                </div>
             </div>
         )
     }

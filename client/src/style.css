@@ -1,7 +1,45 @@
+/* ** Styling For All Pages ** */
+
 *{
     margin: 0
 }
-/* rgb(179, 0, 0); */
+
+img { 
+    height: 50vh;
+    width: 100%
+}
+
+h1{
+    font-size: 60px;
+    font-family: AmaticB;
+}
+
+p, h2{
+    font-size: 25px;
+    font-family: AmaticR;
+}
+
+
+/* ** Inported fonts ** */
+
+@font-face{
+    font-family: AmaticB;
+    src: url(./fonts/AmaticSC-Bold.ttf);
+}
+
+@font-face{
+    font-family: AmaticR;
+    src: url(./fonts/AmaticSC-Regular.ttf)
+}
+
+@font-face{
+    font-family: AmaranthI;
+    src: url(./fonts/Amaranth-RegularItalic.ttf)
+}
+
+
+/* ** Nav Bar Styling ** */
+
 nav{
     background-image: linear-gradient(rgb(218, 0, 0), rgb(90, 0, 0));
     margin-bottom: 3px;
@@ -21,14 +59,34 @@ nav{
     color: rgb(255, 255, 255);
 }
 
+.contactInfo{
+    margin-left: 35px;
+}
+
 .linkDiv{
     text-decoration: none;
     margin-right: 35px;
     color: rgb(255, 255, 255);
 }
 
-.contactInfo{
-    margin-left: 35px;
+.hamburger{
+    display: none;
+}
+
+
+/* ** Home Page Styling ** */
+
+.homeDiv{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
+    height: 85vh;
+    background-image: linear-gradient(rgb(0, 150, 55), rgb(1, 43, 16));
+    color: rgb(255, 255, 255);
+    min-width: 373px;
+    overflow: scroll;
+    font-family: AmaticR
 }
 
 .carouseldiv {
@@ -37,59 +95,20 @@ nav{
     background-color: rgba(0, 0, 0, 0.863)
 }
 
-img {
-    
-    height: 50vh;
-    width: 100%
-}
-
 .carousel {
-    width: 60vw;
-    
+    width: 60vw; 
 }
 
-.homeDiv{
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    text-align: center;
-    height: 85vh;
-    background-image: linear-gradient(rgb(0, 180, 66), rgb(0, 49, 18));
-    color: rgb(255, 255, 255);
-    min-width: 373px;
-    overflow: scroll;
-    font-family: AmaticR
+.homeText{
+    margin: 20px;
 }
 
-h1{
-    font-size: 60px;
-    font-family: AmaticB;
-}
 
-p, h2{
-    font-size: 25px;
-    font-family: AmaticR;
-}
-
-.pizzaImg{
-    height: 300px;
-    width: 300px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin-top: 20px;
-    margin-left: 25px;
-    margin-bottom: 10px;
-}
+/* ** Menu styling ** */
 
 .menuDiv{
-    background-color: rgb(0, 104, 38);
+    background-image: linear-gradient(rgb(0, 105, 39), rgb(0, 80, 29));
     color: white;
-}
-
-.menueInstruct{
-    margin-top: 11px;
-    font-family: AmaticB;
 }
 
 .menuSorter{
@@ -99,15 +118,37 @@ p, h2{
     text-align: center;
 }
 
-.mappedDiv{
-    display: flex;
+.menueInstruct{
+    margin-top: 11px;
+    font-family: AmaticB;
 }
 
-.mappedTitle{
-    text-align: center;
-    margin-top: 20px;
-    width: 300px;
-    margin-left: 25px;
+.sizePiont{
+    transform: rotate(-135deg)
+}
+
+.sortButton{
+    background-color: rgba(1, 100, 37, 0); 
+    border: 0;
+    color: white;
+    font-family: AmaticB;
+    font-size: 20px;
+    outline: 0 
+}
+
+.sortButton:hover{
+    background-color: rgb(153, 0, 0);
+}
+
+.formInstruct{
+    font-family: AmaticB;
+}
+
+.menuInput{
+    width: 61px;
+    margin-right: 10px;
+    text-align: right;
+    direction: rtl important;
 }
 
 .bugetButton{
@@ -123,25 +164,37 @@ p, h2{
     background-color: rgb(153, 0, 0);
 }
 
-.formInstruct{
-    font-family: AmaticB;
+.menuGrid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr))
 }
-.mappedDescription{
-    margin-top: 50px;
+
+
+.mappedTitle{
+    text-align: center;
+    margin-top: 20px;
+    width: 300px;
     margin-left: 25px;
 }
 
-.sizePiont{
-    transform: rotate(-135deg)
+.mappedDiv{
+    display: flex;
 }
 
-.sortButton{
-    background-color: rgb(0, 104, 38); 
-    border: 0;
-    color: white;
-    font-family: AmaticB;
-    font-size: 20px;
-    outline: 0 
+.pizzaImg{
+    height: 300px;
+    width: 300px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 20px;
+    margin-left: 25px;
+    margin-bottom: 10px;
+}
+
+.mappedDescription{
+    margin-top: 50px;
+    margin-left: 25px;
 }
 
 .mappedSize{
@@ -150,21 +203,10 @@ p, h2{
     font-family: AmaranthI;
 }
 
-.sortButton:hover{
-    background-color: rgb(153, 0, 0);
-}
-
-.menuInput{
-    width: 61px;
-    margin-right: 10px;
-    text-align: right;
-    direction: rtl important;
-}
-
 .orderButton{
     margin-top: 20px;
     margin-left: 20px;
-    background-color: rgb(0, 104, 38); 
+    background-color: rgba(0, 104, 38, 0); 
     border: 0;
     font-family: AmaticB;
     color: white;
@@ -176,21 +218,48 @@ p, h2{
     background-color: rgb(153, 0, 0);
 }
 
-.homeText{
-    margin: 20px;
-}
-
-@font-face{
+.spacerText{
     font-family: AmaticB;
-    src: url(./fonts/AmaticSC-Bold.ttf);
+    font-size: 20px;
 }
 
-@font-face{
-    font-family: AmaticR;
-    src: url(./fonts/AmaticSC-Regular.ttf)
+.addToCart{
+    margin-top: 20px;
+    margin-left: 3px;
+    background-color: rgba(0, 104, 38, 0); 
+    border: 0;
+    font-family: AmaticB;
+    color: white;
+    font-size: 20px;
+    outline: 0 
 }
 
-@font-face{
-    font-family: AmaranthI;
-    src: url(./fonts/Amaranth-RegularItalic.ttf)
+.addToCart:hover{
+    background-color: rgb(153, 0, 0);
+}
+
+
+@media only screen and (max-width: 600px){
+    
+    /* ** Nav Bar ** */
+
+    .contact{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .contactInfo{
+        margin-left: 35px;
+    }
+    
+    .linkDiv{
+        display: none;
+    }
+
+    .hamburger{
+        display: unset;
+        color: white;
+        font-size: 30px;
+        margin-right: 15px;
+    }
 }
