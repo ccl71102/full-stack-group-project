@@ -4,7 +4,7 @@ import DemoCarousel from './Carousel.js'
 const Home = (props) => {
     return (
         <div className="homeDiv">
-            <DemoCarousel />
+            <DemoCarousel/>
             <div className="homeText">
                 <h1>Full Stack Pizza</h1><br/>
                 <p>Three full stack coders opened Full Stack Pizza on July 26, 2019.</p><br/>
