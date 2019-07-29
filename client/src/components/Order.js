@@ -1,9 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Order = props => {
 
     return (
-        <div></div>
+        <div>
+            <button><Link to="/checkout">Checkout Order</Link></button>
+        </div>
     )
 }
 
