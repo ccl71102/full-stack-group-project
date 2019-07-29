@@ -37,6 +37,40 @@ p, h2{
     src: url(./fonts/Amaranth-RegularItalic.ttf)
 }
 
+/* ** dropDown Styling ** */
+
+.dropDown-false{
+    height: 150px;
+    background-color: rgb(148, 1, 1);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    width: 100vw;
+    color: white;
+    top: -200px;
+    transition: all
+}
+
+.dropDown-true{
+    height: 150px;
+    background-color: rgb(148, 1, 1);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    width: 100vw;
+    color: white;
+    transition: all
+}
+
+.dropLink{
+    text-decoration: none;
+    margin-right: 35px;
+    color: rgb(255, 255, 255);
+}
 
 /* ** Nav Bar Styling ** */
 
