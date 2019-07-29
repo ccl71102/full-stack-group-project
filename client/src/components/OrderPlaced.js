@@ -1,8 +1,13 @@
-import React from "react";
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
-const OrderPlaced = () => {
+class OrderPlaced extends Component {
 
-    const get12HourFormat = d => {
+    componentDidMount(){
+        localStorage.clear();
+    }
+
+    get12HourFormat = d => {
         if(d.getHours() > 12)
             return d.getHours() - 12;
         else if (d.getHours === 0)
@@ -11,7 +16,7 @@ const OrderPlaced = () => {
             return d.getHours();
     }
 
-    const getMonth = d => {
+    getMonth = d => {
         const months = [ "January", 
                             "February", 
                             "March", 
@@ -27,31 +32,34 @@ const OrderPlaced = () => {
         return months[d.getMonth()];
     }
 
-    const getDayOfYear = () => {
+    getDayOfYear = () => {
         let d = new Date();
         d.setMinutes(d.getMinutes() + 30);
-        let month = getMonth(d);
+        let month = this.getMonth(d);
         let day = d.getDate();
 
         return `${month} ${day}`
     }
 
-    const getTimeOfDay = () => {
+    getTimeOfDay = () => {
 
         let d = new Date();
         d.setMinutes(d.getMinutes() + 30);
         let suffix = d.getHours() >= 12 ? 'PM' : "AM";
-        let hour = get12HourFormat(d);
+        let hour = this.get12HourFormat(d);
         let minutes = d.getMinutes();
 
         return `${hour}:${minutes} ${suffix}`;
     }
 
-    return (
-        <div>
-            <p>Your order has been placed and should be ready on {getDayOfYear()} by {getTimeOfDay()}.</p>
-        </div>
-    );
+    render(){
+        return (
+            <div>
+                <p>Your order has been placed and should be ready on {this.getDayOfYear()} by {this.getTimeOfDay()}.</p>
+                <p>Click <Link to="/">here</Link> go return to the home page.</p>
+            </div>
+        );
+    }
 }
 
 export default OrderPlaced;
