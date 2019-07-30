@@ -24,9 +24,7 @@ const Menu = (props) => {
         } else {
             const cart = [];
             cart.push({_id: _id, count: 1});
-            console.log(cart)
             localStorage.setItem("cart", JSON.stringify(cart));
-            console.log(localStorage.getItem("cart"))
         }
     }
     
