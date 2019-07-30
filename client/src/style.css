@@ -212,6 +212,13 @@ nav{
     margin-right: 15px;
 }
 
+.noResults{
+    font-family: AmaticB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+}
 
 .mappedTitle{
     text-align: center;
