@@ -63,7 +63,7 @@ class Checkout extends Component {
                 <div>
                     <p>Name: {localStorage.getItem("name")}</p>
                     <p>Email Address: {localStorage.getItem("email")}</p>
-                    <p>Phone Number: {`(${phone.substring(0,3)}) ${phone.substring(3,6)}-${phone.substring(6,10)}`}</p>
+                    <p>Phone Number: {localStorage.getItem("phone") ? `(${phone.substring(0,3)}) ${phone.substring(3,6)}-${phone.substring(6,10)}` : "" }</p>
                 </div>
                 <button onClick={() => this.handleRoute("/order")}>Back To Order Page</button>
                 <button onClick={() => this.handleRoute("/orderplaced")}>Place Order</button>
