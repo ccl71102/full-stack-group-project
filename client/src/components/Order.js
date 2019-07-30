@@ -10,7 +10,7 @@ class Order extends Component {
             pizzas: [],
             name: localStorage.getItem("name") || "",
             email: localStorage.getItem("email") || "",
-            phone: "" //it's a bit trickier with the phone number
+            phone: localStorage.getItem("phone") || ""
         };
     }
 
@@ -55,7 +55,7 @@ class Order extends Component {
         e.preventDefault();
         localStorage.setItem("name", this.state.name);
         localStorage.setItem("email", this.state.email);
-        localStorage.setItem("phone", `(${this.state.phone.substring(0,3)}) ${this.state.phone.substring(3,6)}-${this.state.phone.substring(6,10)}`);
+        localStorage.setItem("phone", this.state.phone);
 
         this.setState({
             name: "",

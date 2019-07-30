@@ -52,7 +52,8 @@ class Checkout extends Component {
             </div>);
 
         const orderTotal = this.state.pizzas.reduce((total, curr) => total + curr.price * this.state.cart.find(order => order._id === curr._id).count, 0);
-        
+        let phone = (localStorage.getItem("phone"));
+
         return(
             <div>
                 <h1>Order Summary</h1>
@@ -62,7 +63,7 @@ class Checkout extends Component {
                 <div>
                     <p>Name: {localStorage.getItem("name")}</p>
                     <p>Email Address: {localStorage.getItem("email")}</p>
-                    <p>Phone Number: {localStorage.getItem("phone")}</p>
+                    <p>Phone Number: {`(${phone.substring(0,3)}) ${phone.substring(3,6)}-${phone.substring(6,10)}`}</p>
                 </div>
                 <button onClick={() => this.handleRoute("/order")}>Back To Order Page</button>
                 <button onClick={() => this.handleRoute("/orderplaced")}>Place Order</button>
