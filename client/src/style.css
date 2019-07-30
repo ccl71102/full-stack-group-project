@@ -94,13 +94,15 @@ nav{
 }
 
 .contactInfo{
-    margin-left: 35px;
+    margin-left: 15px;
+    font-size: 16px
 }
 
 .linkDiv{
     text-decoration: none;
-    margin-right: 35px;
+    margin-right: 20px;
     color: rgb(255, 255, 255);
+    margin-left: 5px;
 }
 
 .hamburger{
@@ -285,6 +287,7 @@ nav{
     align-content: center;
     flex-direction: column;
     text-align: center;
+    overflow: scroll;
 }
 
 .emptyCart{
@@ -313,11 +316,97 @@ nav{
     font-family: AmaticB;
     color: white;
     font-size: 20px;
+    margin: auto;
     margin-top: 10px;
+    width: 300px
 }
 
 .placeOrder:hover{
     background-color: rgb(153, 0, 0);
+}
+
+/* ** Order Page Styling ** */
+
+.orderDiv{
+    background-image: linear-gradient(rgb(0, 105, 39), rgb(0, 80, 29));  
+    height: 85vh;
+    overflow: scroll;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.orderForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.formInputs{
+    margin-top: 5px;
+}
+
+.goToCheckout{
+    background-color: rgba(2, 116, 7, 0);
+    border: none;
+    outline: 0;
+    font-family: AmaticB;
+    color: white;
+    font-size: 20px;
+    margin: auto;
+    margin-top: 10px;
+    width: 300px
+}
+
+.goToCheckout:hover{
+   background-color: rgb(153, 0, 0);
+}
+
+/* ** Checkout Page Styling ** */
+
+.checkoutDiv{
+    background-image: linear-gradient(rgb(0, 105, 39), rgb(0, 80, 29));  
+    height: 85vh;
+    overflow: scroll;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    text-align: center; 
+}
+
+.chekoutButtons{
+    background-color: rgba(2, 116, 7, 0);
+    border: none;
+    outline: 0;
+    font-family: AmaticB;
+    color: white;
+    font-size: 20px;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.chekoutButtons:hover{
+    background-color: rgb(153, 0, 0);
+}
+
+/* ** Order Placed Page Styling ** */
+
+.orderPlacedDiv{
+    background-image: linear-gradient(rgb(0, 105, 39), rgb(0, 80, 29));  
+    height: 85vh;
+    overflow: scroll;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    text-align: center;
 }
 
 @media only screen and (max-width: 600px){
