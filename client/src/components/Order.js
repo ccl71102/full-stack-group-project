@@ -140,7 +140,7 @@ class Order extends Component {
                 <form onSubmit={this.handleSubmit} className="orderForm">
                     <input required name="name" value={this.state.name} placeholder="Full Name" onChange={this.handleChange} maxLength="30" className="formInputs"/>
                     <input required name="email" value={this.state.email} placeholder="Email Address" maxLength="30" onChange={this.handleChange} className="formInputs"/>
-                    <input required name="phone" value={this.state.phone} placeholder="Phone Number (555) 555-5555" maxLength="10" onChange={this.handleChange} className="formInputs"/>
+                    <input required name="phone" value={this.state.phone} placeholder="Phone Number" minLength="10" maxLength="10" onChange={this.handleChange} className="formInputs"/>
                     <button className="goToCheckout">{"Go To Checkout"}</button>
                 </form>
             </div>
