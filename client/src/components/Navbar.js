@@ -32,7 +32,6 @@ class Navbar extends Component{
                     <Link to="/" className="dropLink">Home</Link>
                     <Link to="/menu" className="dropLink">Menu</Link>
                     <Link to="/cart" className="dropLink">Cart</Link>
-                    <Link to="/order" className="dropLink">Order</Link> 
                 </div>
                 <nav>
                     <div className="contact">
@@ -41,10 +40,9 @@ class Navbar extends Component{
                     </div>
                     <div>
                         <div className="hamburger" id="burger"><FontAwesomeIcon icon={faPizzaSlice} className="burgerToggle"/></div>
-                        <Link to="/" className="linkDiv">Home<FontAwesomeIcon icon={faHome}/></Link>
-                        <Link to="/menu" className="linkDiv">Menu<FontAwesomeIcon icon={faClipboardList}/></Link>
-                        <Link to="/cart" className="linkDiv">Cart<FontAwesomeIcon icon={faShoppingCart}/></Link>
-                        <Link to="/order" className="linkDiv">Order<FontAwesomeIcon icon={faMoneyCheck}/></Link>   
+                        <Link to="/" className="linkDiv">Home<FontAwesomeIcon icon={faHome} className="navIcon"/></Link>
+                        <Link to="/menu" className="linkDiv">Menu<FontAwesomeIcon icon={faClipboardList} className="navIcon"/></Link>
+                        <Link to="/cart" className="linkDiv">Cart<FontAwesomeIcon icon={faShoppingCart} className="navIcon"/></Link>   
                     </div>
                 </nav>
             </div>

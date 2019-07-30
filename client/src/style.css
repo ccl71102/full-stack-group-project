@@ -5,7 +5,7 @@
 }
 
 img { 
-    height: 50vh;
+    height: 55vh;
     width: 100%
 }
 
@@ -81,11 +81,15 @@ nav{
     display: flex;
     justify-content: space-between; 
     align-items: center;
-    height: 15vh;
+    height: 10vh;
     z-index: 100;
     min-width: 375px;
     text-shadow: 2px 3px black;
     font-family: AmaticB;
+}
+
+.navIcon{
+    margin-left: 2px;
 }
 
 .contact{
@@ -94,8 +98,8 @@ nav{
 }
 
 .contactInfo{
-    margin-left: 15px;
-    font-size: 16px
+    margin-left: 12px;
+    font-size: 20px
 }
 
 .linkDiv{
@@ -117,7 +121,7 @@ nav{
     flex-direction: column;
     align-content: center;
     text-align: center;
-    height: 85vh;
+    height: 90vh;
     background-image: linear-gradient(rgb(0, 150, 55), rgb(1, 43, 16));
     color: rgb(255, 255, 255);
     min-width: 373px;
@@ -202,7 +206,8 @@ nav{
 
 .menuGrid{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr))
+    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+    margin-right: 15px;
 }
 
 
@@ -280,7 +285,7 @@ nav{
 
 .cartDiv{
     background-image: linear-gradient(rgb(0, 105, 39), rgb(0, 80, 29)); 
-    height: 85vh;
+    height: 90vh;
     color: white;
     display: flex;
     justify-content: center;
@@ -329,7 +334,7 @@ nav{
 
 .orderDiv{
     background-image: linear-gradient(rgb(0, 105, 39), rgb(0, 80, 29));  
-    height: 85vh;
+    height: 90vh;
     overflow: scroll;
     color: white;
     display: flex;
@@ -370,7 +375,7 @@ nav{
 
 .checkoutDiv{
     background-image: linear-gradient(rgb(0, 105, 39), rgb(0, 80, 29));  
-    height: 85vh;
+    height: 90vh;
     overflow: scroll;
     color: white;
     display: flex;
@@ -399,7 +404,7 @@ nav{
 
 .orderPlacedDiv{
     background-image: linear-gradient(rgb(0, 105, 39), rgb(0, 80, 29));  
-    height: 85vh;
+    height: 90vh;
     overflow: scroll;
     color: white;
     display: flex;
