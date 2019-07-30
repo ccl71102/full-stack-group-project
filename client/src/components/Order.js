@@ -129,8 +129,8 @@ class Order extends Component {
 
         const mappedOrder = this.state.pizzas.map(pizza => <div key={pizza._id}>
                 <p>{`${this.getSizeString(pizza.size)} ${pizza.title} (${this.state.cart.find(order => order._id === pizza._id).count})`}</p>
-                <button onClick={() => this.increaseCount(pizza._id)}>Add</button>
-                <button onClick={() => this.decreaseCount(pizza._id)}>Remove</button>
+                <button onClick={() => this.increaseCount(pizza._id)} className="reworkOrder">Add</button>
+                <button onClick={() => this.decreaseCount(pizza._id)} className="reworkOrder">Remove</button>
             </div>);
 
         return(
