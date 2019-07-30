@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPizzaSlice, faCartPlus} from "@fortawesome/free-solid-svg-icons"
+import { faPizzaSlice, faShoppingCart, faHome, faMoneyCheck, faClipboardList} from "@fortawesome/free-solid-svg-icons"
 
 class Navbar extends Component{
     constructor(){
@@ -29,9 +29,9 @@ class Navbar extends Component{
         return (
             <div>
                 <div className={`dropDown-${this.state.ham}`}>
-                    <Link to="/cart" className="dropLink"><FontAwesomeIcon icon={faCartPlus} /></Link>
                     <Link to="/" className="dropLink">Home</Link>
                     <Link to="/menu" className="dropLink">Menu</Link>
+                    <Link to="/cart" className="dropLink">Cart</Link>
                     <Link to="/order" className="dropLink">Order</Link> 
                 </div>
                 <nav>
@@ -41,10 +41,10 @@ class Navbar extends Component{
                     </div>
                     <div>
                         <div className="hamburger" id="burger"><FontAwesomeIcon icon={faPizzaSlice} className="burgerToggle"/></div>
-                        <Link to="/cart" className="linkDiv"><FontAwesomeIcon icon={faCartPlus} /></Link>
-                        <Link to="/" className="linkDiv">Home</Link>
-                        <Link to="/menu" className="linkDiv">Menu</Link>
-                        <Link to="/order" className="linkDiv">Order</Link>   
+                        <Link to="/" className="linkDiv">Home<FontAwesomeIcon icon={faHome}/></Link>
+                        <Link to="/menu" className="linkDiv">Menu<FontAwesomeIcon icon={faClipboardList}/></Link>
+                        <Link to="/cart" className="linkDiv">Cart<FontAwesomeIcon icon={faShoppingCart}/></Link>
+                        <Link to="/order" className="linkDiv">Order<FontAwesomeIcon icon={faMoneyCheck}/></Link>   
                     </div>
                 </nav>
             </div>
