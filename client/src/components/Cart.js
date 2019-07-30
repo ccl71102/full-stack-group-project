@@ -47,9 +47,8 @@ class Cart extends Component {
                     return order        
             }
             )
-        })
+        }, localStorage.setItem("cart", JSON.stringify(this.state.cart)));
         
-        localStorage.setItem("cart", JSON.stringify(this.state.cart));
     }
 
     decreaseCount = _id => {
