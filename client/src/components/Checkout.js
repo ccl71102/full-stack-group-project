@@ -48,13 +48,17 @@ class Checkout extends Component {
     render(){
 
         const mappedOrder = this.state.pizzas.map(pizza => <div key={pizza._id}>
-                <p>{`${this.getSizeString(pizza.size)} ${pizza.title} (${this.state.cart.find(order => order._id === pizza._id).count})`}</p>
+                <p>{`${this.getSizeString(pizza.size)} ${pizza.title} (${this.state.cart.find(order => order._id === pizza._id).count}) - $${pizza.price * (this.state.cart.find(order => order._id === pizza._id).count)}`}</p>
             </div>);
 
+        const orderTotal = this.state.pizzas.reduce((total, curr) => total + curr.price * this.state.cart.find(order => order._id === curr._id).count, 0);
+        
         return(
             <div>
                 <h1>Order Summary</h1>
                 <div>{mappedOrder}</div>
+                <p>UT Sales Tax: ${(orderTotal * 0.0775).toFixed(2)}</p>
+                <p>Order Total: ${(orderTotal + (orderTotal * 0.0775)).toFixed(2)}</p>
                 <div>
                     <p>Name: {localStorage.getItem("name")}</p>
                     <p>Email Address: {localStorage.getItem("email")}</p>

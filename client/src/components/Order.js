@@ -8,9 +8,9 @@ class Order extends Component {
         this.state = {
             cart: JSON.parse(localStorage.getItem("cart")) || [],
             pizzas: [],
-            name: "",
-            email: "",
-            phone: ""
+            name: localStorage.getItem("name") || "",
+            email: localStorage.getItem("email") || "",
+            phone: "" //it's a bit trickier with the phone number
         };
     }
 
@@ -71,11 +71,9 @@ class Order extends Component {
                     })
                 else
                     return order        
-            }
-            )
-        })
+            })
+        }, localStorage.setItem("cart", JSON.stringify(this.state.cart)));
         
-        localStorage.setItem("cart", JSON.stringify(this.state.cart));
     }
 
     decreaseCount = _id => {

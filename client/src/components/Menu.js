@@ -27,6 +27,11 @@ const Menu = (props) => {
             localStorage.setItem("cart", JSON.stringify(cart));
         }
     }
+
+    const orderPizza = _id => {
+        addToCart(_id);
+        props.history.push("/order");
+    }
     
     const mappedPizzas = props.pizzas.map(pizza => <div key={pizza._id}>
         <h1 className="mappedTitle">{pizza.title}</h1>
@@ -37,7 +42,7 @@ const Menu = (props) => {
                 <div>
                     <h2 className="mappedDescription">{pizza.description}</h2>
                     <h4 className="mappedSize">{pizza.size} inches / ${pizza.price}</h4>
-                    <button className="orderButton">Order Now!</button> 
+                    <button className="orderButton" onClick={() => orderPizza(pizza._id)}>Order Now!</button> 
                     <span className="spacerText">or</span>
                     <button className="addToCart" onClick={() => addToCart(pizza._id)}>Add To Cart!</button>
                 </div> 
