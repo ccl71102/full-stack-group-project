@@ -80,7 +80,7 @@ class OrderPlaced extends Component {
 
     render(){
         return (
-            <div>
+            <div className="orderPlacedDiv">
                 <p>Full Stack Pizza thanks you for your order.</p>
                 <p>Your order has been placed and should be ready on {this.getDayOfYear()} by {this.getTimeOfDay()}.</p>
                 <p>Click <Link to="/">here</Link> go return to the home page.</p>

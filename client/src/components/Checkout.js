@@ -55,7 +55,7 @@ class Checkout extends Component {
         let phone = (localStorage.getItem("phone"));
 
         return(
-            <div>
+            <div className="checkoutDiv">
                 <h1>Order Summary</h1>
                 <div>{mappedOrder}</div>
                 <p>UT Sales Tax: ${(orderTotal * 0.0775).toFixed(2)}</p>
@@ -65,8 +65,10 @@ class Checkout extends Component {
                     <p>Email Address: {localStorage.getItem("email")}</p>
                     <p>Phone Number: {localStorage.getItem("phone") ? `(${phone.substring(0,3)}) ${phone.substring(3,6)}-${phone.substring(6,10)}` : "" }</p>
                 </div>
-                <button onClick={() => this.handleRoute("/order")}>Back To Order Page</button>
-                <button onClick={() => this.handleRoute("/orderplaced")}>Place Order</button>
+                <div>
+                    <button onClick={() => this.handleRoute("/order")} className="chekoutButtons">Back To Order Page</button>
+                    <button onClick={() => this.handleRoute("/orderplaced")} className="chekoutButtons">Place Order</button>
+                </div>
             </div>
         );
     }
