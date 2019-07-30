@@ -150,6 +150,7 @@ nav{
     background-image: linear-gradient(rgb(0, 105, 39), rgb(0, 80, 29));
     color: white;
     height: 90vh;
+    overflow: scroll;
 }
 
 .menuSorter{
@@ -160,7 +161,7 @@ nav{
 }
 
 .menueInstruct{
-    margin-top: 11px;
+    margin-top: 17px;
     font-family: AmaticB;
 }
 
@@ -173,7 +174,7 @@ nav{
     border: 0;
     color: white;
     font-family: AmaticB;
-    font-size: 20px;
+    font-size: 30px;
     outline: 0 
 }
 
@@ -197,7 +198,7 @@ nav{
     border: 0;
     color: white;
     font-family: AmaticB;
-    font-size: 17px;
+    font-size: 23px;
     outline: 0 
 }
 
@@ -252,7 +253,7 @@ nav{
     border: 0;
     font-family: AmaticB;
     color: white;
-    font-size: 20px;
+    font-size: 30px;
     outline: 0 
 }
 
@@ -272,7 +273,7 @@ nav{
     border: 0;
     font-family: AmaticB;
     color: white;
-    font-size: 20px;
+    font-size: 30px;
     outline: 0 
 }
 
@@ -281,7 +282,6 @@ nav{
 }
 
 
-/*   not set up for mobile yet  */
 /* ** Cart Styling ** */
 
 .cartDiv{
@@ -321,7 +321,7 @@ nav{
     outline: 0;
     font-family: AmaticB;
     color: white;
-    font-size: 20px;
+    font-size: 30px;
     margin: auto;
     margin-top: 10px;
     width: 300px
@@ -345,6 +345,22 @@ nav{
     text-align: center;
 }
 
+.reworkOrder{
+    background-color: rgba(2, 116, 7, 0);
+    border: none;
+    outline: 0;
+    font-family: AmaticB;
+    color: white;
+    font-size: 20px;
+    margin: auto;
+    margin-top: 3px;
+    margin-bottom: 10px;
+}
+
+.reworkOrder:hover{
+    background-color: rgb(153, 0, 0);
+}
+
 .orderForm{
     display: flex;
     flex-direction: column;
@@ -362,7 +378,7 @@ nav{
     outline: 0;
     font-family: AmaticB;
     color: white;
-    font-size: 20px;
+    font-size: 30px;
     margin: auto;
     margin-top: 10px;
     width: 300px
@@ -392,7 +408,7 @@ nav{
     outline: 0;
     font-family: AmaticB;
     color: white;
-    font-size: 20px;
+    font-size: 25px;
     margin: auto;
     margin-top: 10px;
 }
