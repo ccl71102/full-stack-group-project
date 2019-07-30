@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 class OrderPlaced extends Component {
 
-    componentDidMount(){
+    componentWillUnmount(){
         localStorage.clear();
     }
 

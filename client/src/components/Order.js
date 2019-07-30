@@ -32,6 +32,10 @@ class Order extends Component {
         }
     }
 
+    componentWillUnmount() {
+        localStorage.setItem("cart", JSON.stringify(this.state.cart));
+    }
+
     handleChange = e => {
         const {name, value} = e.target;
         if(name === "phone"){
@@ -65,10 +69,10 @@ class Order extends Component {
         this.setState({
             cart: this.state.cart.map(order => {
                 if(order._id === _id)
-                    return ({
+                    return {
                         _id: _id,
                         count: order.count + 1
-                    })
+                    }
                 else
                     return order        
             })
