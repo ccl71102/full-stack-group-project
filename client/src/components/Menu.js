@@ -68,8 +68,9 @@ const Menu = (props) => {
                     <button onClick={() => {props.getAllPizzas("16")}} className="sortButton">Size: 16 inches</button>
                     <MenuFrom getAllPizzasByPrice={props.getAllPizzasByPrice} {...props}/>
                 </div>
-                <div className="menuGrid">
-                    {mappedPizzas.length !== 0 ? mappedPizzas : "There are no results to display. Please refresh the page and try again."}
+                {/* <div className="menuGrid"> */}
+                <div className={mappedPizzas.length !== 0 ? "menuGrid" : "noResults"}>
+                    {mappedPizzas.length !== 0 ? mappedPizzas : <p>There are no results to display. Please refresh the page and try again.</p>}
                 </div>
             </div>
         )
