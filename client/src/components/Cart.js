@@ -102,7 +102,7 @@ class Cart extends Component {
             <div className="cartDiv">
                 <h1>Your Cart</h1>
                 <div className="emptyCart">{mappedOrder.length !== 0 ? mappedOrder : "Your cart is lonely. :( "}</div>
-                <button className="placeOrder" onClick={() => this.handleRoute("/order")}>Proceed To Order Page</button>
+                <button className="placeOrder" onClick={this.state.pizzas.length !== 0 ? () => this.handleRoute("/order") : () => this.handleRoute("/menu")}>{this.state.pizzas.length !== 0 ? "Proceed To Order Page" : "Go Back To Menu"}</button>
             </div>
         );
     }
