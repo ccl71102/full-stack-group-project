@@ -58,8 +58,8 @@ class Checkout extends Component {
             <div className="checkoutDiv">
                 <h1>Order Summary</h1>
                 <div>{mappedOrder}</div>
-                <p>UT Sales Tax: ${(orderTotal * 0.0775).toFixed(2)}</p>
-                <p>Order Total: ${(orderTotal + (orderTotal * 0.0775)).toFixed(2)}</p>
+                <p>UT Sales Tax: ${(orderTotal * 0.0775).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2})}</p>
+                <p>Order Total: ${(orderTotal + (orderTotal * 0.0775)).toLocaleString(undefined, {minimumFractionDigits: 2,maximumFractionDigits: 2})}</p>
                 <div>
                     <p>Name: {localStorage.getItem("name")}</p>
                     <p>Email Address: {localStorage.getItem("email")}</p>

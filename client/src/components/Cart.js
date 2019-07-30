@@ -6,6 +6,7 @@ class Cart extends Component {
 
     constructor(){
         super();
+        console.log(JSON.parse(localStorage.getItem("cart")) )
         this.state = {
             cart: JSON.parse(localStorage.getItem("cart")) || [],
             pizzas: []
@@ -47,36 +48,32 @@ class Cart extends Component {
                     return order        
             }
             )
-        }, localStorage.setItem("cart", JSON.stringify(this.state.cart)));
+        }, () => localStorage.setItem("cart", JSON.stringify(this.state.cart)));
         
     }
 
     decreaseCount = _id => {
-        // console.log(_id)
-        // console.log(this.state.cart)
-        // console.log(this.state.cart.find(order => order._id === _id))
-        // if(this.state.cart.find(order => order._id === _id).count > 0){
-        //     console.log("decrease")
-        //     this.setState({
-        //         cart: this.state.cart.map(order => {
-        //             if(order._id === _id)
-        //                 return {
-        //                     _id: _id,
-        //                     count: order.count - 1
-        //                 }
-        //             else
-        //                 return order;
-        //             }
-        //     )})
-        // }
 
-        // if(this.state.cart.find(order => order._id === _id).count <= 0)
-        // console.log("remove")
-        //     this.setState({
-        //         cart: this.state.cart.filter(order => order._id !== _id)
-        //     });
+        if(this.state.cart.find(order => order._id === _id).count > 1){
+            this.setState(prevState => ({
+                cart: prevState.cart.map(order => {
+                    if(order._id === _id) {
+                        return ({
+                            _id: _id,
+                            count: order.count - 1
+                        })
+                    }
+                    else
+                        return order;
+                    }
+            )}), () => localStorage.setItem("cart", JSON.stringify(this.state.cart)));
 
-        // localStorage.setItem("cart", JSON.stringify(this.state.cart));
+        } else {
+            this.setState({
+                cart: this.state.cart.filter(order => order._id !== _id),
+                pizzas: this.state.pizzas.filter(pizza => pizza._id !== _id)
+            }, () => localStorage.setItem("cart", JSON.stringify(this.state.cart)));
+        }
     }
 
     getSizeString = size => {

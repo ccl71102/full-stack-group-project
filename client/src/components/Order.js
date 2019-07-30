@@ -78,35 +78,40 @@ class Order extends Component {
         this.setState({
             cart: this.state.cart.map(order => {
                 if(order._id === _id)
-                    return {
+                    return ({
                         _id: _id,
                         count: order.count + 1
-                    }
+                    })
                 else
                     return order        
-            })
-        }, localStorage.setItem("cart", JSON.stringify(this.state.cart)));
+            }
+            )
+        }, () => localStorage.setItem("cart", JSON.stringify(this.state.cart)));
         
     }
 
     decreaseCount = _id => {
-    //     if(this.state.cart.indexOf(_id).count > 0)
-    //     this.setState({
-    //         cart: this.state.cart.map(order => {
-    //             if(order._id === _id)
-    //                 return {
-    //                     _id: _id,
-    //                     count: this.state.count - 1
-    //                 }
-    //     }
-    // )})
 
-    //     if(this.state.cart.indexOf(_id).count <= 0)
-    //         this.setState({
-    //             cart: this.state.cart.filter(order => order._id !== _id)
-    //         });
+        if(this.state.cart.find(order => order._id === _id).count > 1){
+            this.setState(prevState => ({
+                cart: prevState.cart.map(order => {
+                    if(order._id === _id) {
+                        return ({
+                            _id: _id,
+                            count: order.count - 1
+                        })
+                    }
+                    else
+                        return order;
+                    }
+            )}), () => localStorage.setItem("cart", JSON.stringify(this.state.cart)));
 
-    //     localStorage.setItem("cart", JSON.stringify(this.state.cart));
+        } else {
+            this.setState({
+                cart: this.state.cart.filter(order => order._id !== _id),
+                pizzas: this.state.pizzas.filter(pizza => pizza._id !== _id)
+            }, () => localStorage.setItem("cart", JSON.stringify(this.state.cart)));
+        }
     }
 
     getSizeString = size => {
@@ -125,7 +130,7 @@ class Order extends Component {
         const mappedOrder = this.state.pizzas.map(pizza => <div key={pizza._id}>
                 <p>{`${this.getSizeString(pizza.size)} ${pizza.title} (${this.state.cart.find(order => order._id === pizza._id).count})`}</p>
                 <button onClick={() => this.increaseCount(pizza._id)}>Add</button>
-                <button>Remove</button>
+                <button onClick={() => this.decreaseCount(pizza._id)}>Remove</button>
             </div>);
 
         return(
