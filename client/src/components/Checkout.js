@@ -48,7 +48,7 @@ class Checkout extends Component {
     render(){
 
         const mappedOrder = this.state.pizzas.map(pizza => <div key={pizza._id}>
-                <p>{`${this.getSizeString(pizza.size)} ${pizza.title} (${this.state.cart.find(order => order._id === pizza._id).count}) - $${pizza.price * (this.state.cart.find(order => order._id === pizza._id).count)}`}</p>
+                <p>{`${this.getSizeString(pizza.size)} ${pizza.title} (${this.state.cart.find(order => order._id === pizza._id).count}) - $${(pizza.price * (this.state.cart.find(order => order._id === pizza._id).count)).toFixed(2)}`}</p>
             </div>);
 
         const orderTotal = this.state.pizzas.reduce((total, curr) => total + curr.price * this.state.cart.find(order => order._id === curr._id).count, 0);
