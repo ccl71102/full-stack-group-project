@@ -149,6 +149,7 @@ nav{
 .menuDiv{
     background-image: linear-gradient(rgb(0, 105, 39), rgb(0, 80, 29));
     color: white;
+    height: 90vh;
 }
 
 .menuSorter{
@@ -412,6 +413,10 @@ nav{
     align-content: center;
     flex-direction: column;
     text-align: center;
+}
+
+.goHome{
+    color: rgb(49, 212, 0)
 }
 
 @media only screen and (max-width: 600px){

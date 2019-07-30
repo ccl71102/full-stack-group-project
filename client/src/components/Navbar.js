@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPizzaSlice, faShoppingCart, faHome, faMoneyCheck, faClipboardList} from "@fortawesome/free-solid-svg-icons"
+import { faPizzaSlice, faShoppingCart, faHome, faClipboardList} from "@fortawesome/free-solid-svg-icons"
 
 class Navbar extends Component{
     constructor(){
