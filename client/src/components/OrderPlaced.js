@@ -41,10 +41,20 @@ class OrderPlaced extends Component {
         return `${month} ${day}`
     }
 
+    getMinutesByCount = (count) => {
+        if(count%2 === 0) {
+            return (count/2) * 20;
+        } else if(count%2 !== 0) {
+            return ((count - 1)/2) * 20;
+        }
+    }
+
     getTimeOfDay = () => {
 
+        console.log()
+        let totalCount = JSON.parse(localStorage.getItem("cart")).reduce((total, curr) => total + curr.count, 0)
         let d = new Date();
-        d.setMinutes(d.getMinutes() + 30);
+        d.setMinutes(d.getMinutes() + this.getMinutesByCount(totalCount));
         let suffix = d.getHours() >= 12 ? 'PM' : "AM";
         let hour = this.get12HourFormat(d);
         let minutes = d.getMinutes();
