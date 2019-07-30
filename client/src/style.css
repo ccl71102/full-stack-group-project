@@ -273,6 +273,53 @@ nav{
 }
 
 
+/*   not set up for mobile yet  */
+/* ** Cart Styling ** */
+
+.cartDiv{
+    background-image: linear-gradient(rgb(0, 105, 39), rgb(0, 80, 29)); 
+    height: 85vh;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.emptyCart{
+    font-family: AmaticR;
+    font-size: 20px; 
+}
+
+.orderAmont{
+    background-color: rgba(2, 116, 7, 0);
+    border: none;
+    outline: 0;
+    font-family: AmaticB;
+    color: white;
+    font-size: 20px;
+    margin-top: 10px; 
+}
+
+.orderAmont:hover{
+    background-color: rgb(153, 0, 0);
+}
+
+.placeOrder{
+    background-color: rgba(2, 116, 7, 0);
+    border: none;
+    outline: 0;
+    font-family: AmaticB;
+    color: white;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.placeOrder:hover{
+    background-color: rgb(153, 0, 0);
+}
+
 @media only screen and (max-width: 600px){
     
     /* ** Nav Bar ** */

@@ -94,15 +94,15 @@ class Cart extends Component {
 
         const mappedOrder = this.state.pizzas.map(pizza => <div key={pizza._id}>
                 <p>{`${this.getSizeString(pizza.size)} ${pizza.title} (${this.state.cart.find(order => order._id === pizza._id).count})`}</p>
-                <button onClick={() => this.increaseCount(pizza._id)}>Add</button>
-                <button onClick={() => this.decreaseCount(pizza._id)}>Remove</button>
+                <button className="orderAmont" onClick={() => this.increaseCount(pizza._id)}>Add</button>
+                <button className="orderAmont" onClick={() => this.decreaseCount(pizza._id)}>Remove</button>
             </div>);
 
         return(
-            <div>
+            <div className="cartDiv">
                 <h1>Your Cart</h1>
-                <div>{mappedOrder.length !== 0 ? mappedOrder : "Your cart is lonely. :( "}</div>
-                <button onClick={() => this.handleRoute("/order")}>Proceed To Order Page</button>
+                <div className="emptyCart">{mappedOrder.length !== 0 ? mappedOrder : "Your cart is lonely. :( "}</div>
+                <button className="placeOrder" onClick={() => this.handleRoute("/order")}>Proceed To Order Page</button>
             </div>
         );
     }
