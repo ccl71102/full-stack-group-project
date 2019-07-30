@@ -53,16 +53,25 @@ class Order extends Component {
     handleSubmit = e => {
 
         e.preventDefault();
-        localStorage.setItem("name", this.state.name);
-        localStorage.setItem("email", this.state.email);
-        localStorage.setItem("phone", this.state.phone);
 
-        this.setState({
-            name: "",
-            email: "",
-            phone: ""
-        }, this.props.history.push("/checkout"))
+        if(this.state.pizzas.length !== 0) {
 
+            localStorage.setItem("name", this.state.name);
+            localStorage.setItem("email", this.state.email);
+            localStorage.setItem("phone", this.state.phone);
+
+            this.setState({
+                name: "",
+                email: "",
+                phone: ""
+            }, this.props.history.push("/checkout"));
+        }   else 
+            alert("Your cart is currently empty.");   
+
+    }
+
+    handleRoute = route => {
+        this.props.history.push(route);
     }
 
     increaseCount = _id => {
@@ -127,7 +136,7 @@ class Order extends Component {
                     <input required name="name" value={this.state.name} placeholder="Full Name" onChange={this.handleChange} maxLength="30" className="formInputs"/>
                     <input required name="email" value={this.state.email} placeholder="Email Address" maxLength="30" onChange={this.handleChange} className="formInputs"/>
                     <input required name="phone" value={this.state.phone} placeholder="Phone Number (555) 555-5555" maxLength="10" onChange={this.handleChange} className="formInputs"/>
-                    <button className="goToCheckout">Go To Checkout</button>
+                    <button className="goToCheckout">{"Go To Checkout"}</button>
                 </form>
             </div>
         );
