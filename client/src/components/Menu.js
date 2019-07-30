@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPizzaSlice} from "@fortawesome/free-solid-svg-icons"
 const Menu = (props) => {
 
-    const addToCart = _id => {
+    const addToCart = (_id, title, isQuickCheckout) => {
 
         if(localStorage.getItem("cart")) {
             if(JSON.parse(localStorage.getItem("cart")).find(order => order._id === _id)) {
@@ -16,20 +16,30 @@ const Menu = (props) => {
                 cart = cart.filter(order => order._id !== _id);
                 cart.push(itemToUpdate);
                 localStorage.setItem("cart", JSON.stringify(cart));
+                if(!isQuickCheckout){
+                    alert(`${title} has been added to your cart.`)
+                }
+
             } else {
                 const cart = JSON.parse(localStorage.getItem("cart"));
                 cart.push({_id: _id, count: 1});
                 localStorage.setItem("cart", JSON.stringify(cart));
+                if(!isQuickCheckout){
+                    alert(`${title} has been added to your cart.`)
+                }
             }
         } else {
             const cart = [];
             cart.push({_id: _id, count: 1});
             localStorage.setItem("cart", JSON.stringify(cart));
+            if(!isQuickCheckout){
+                alert(`${title} has been added to your cart.`)
+            }
         }
     }
 
     const orderPizza = _id => {
-        addToCart(_id);
+        addToCart(_id, "", true);
         props.history.push("/order");
     }
     
@@ -44,7 +54,7 @@ const Menu = (props) => {
                     <h4 className="mappedSize">{pizza.size} inches / ${pizza.price}</h4>
                     <button className="orderButton" onClick={() => orderPizza(pizza._id)}>Order Now!</button> 
                     <span className="spacerText">or</span>
-                    <button className="addToCart" onClick={() => addToCart(pizza._id)}>Add To Cart!</button>
+                    <button className="addToCart" onClick={() => addToCart(pizza._id, pizza.title, false)}>Add To Cart!</button>
                 </div> 
            </div>
         </div>)
@@ -59,7 +69,7 @@ const Menu = (props) => {
                     <MenuFrom getAllPizzasByPrice={props.getAllPizzasByPrice} {...props}/>
                 </div>
                 <div className="menuGrid">
-                    {mappedPizzas}
+                    {mappedPizzas.length !== 0 ? mappedPizzas : "There are no results to display. Please refresh the page and try again."}
                 </div>
             </div>
         )
