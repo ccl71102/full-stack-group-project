@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlusCircle, faMinusCircle } from "@fortawesome/free-solid-svg-icons";
 
 class Order extends Component {
 
@@ -134,8 +136,8 @@ class Order extends Component {
     render(){
         const mappedOrder = this.state.pizzas.map(pizza => <div key={pizza._id}>
                 <p>{`${this.getSizeString(pizza.size)} ${pizza.title} (${this.state.cart.find(order => order._id === pizza._id).count}) - $${(pizza.price * (this.state.cart.find(order => order._id === pizza._id).count)).toLocaleString(undefined, {minimumFractionDigits: 2,maximumFractionDigits: 2})}`}{this.state.cart.find(order => order._id === pizza._id).count !== 1 ? ` ($${pizza.price} each)` : ""}</p>
-                <button onClick={() => this.increaseCount(pizza._id)} className="reworkOrder">{"(+)"}</button>
-                <button onClick={() => this.decreaseCount(pizza._id)} className="reworkOrder">{"(-)"}</button>
+                <button onClick={() => this.increaseCount(pizza._id)} className="reworkOrder"><FontAwesomeIcon icon={faPlusCircle}/></button>
+                <button onClick={() => this.decreaseCount(pizza._id)} className="reworkOrder"><FontAwesomeIcon icon={faMinusCircle}/></button>
                 <button className="orderAmont" onClick={() => this.removeAll(pizza._id)}>Remove All</button>
             </div>);
 
