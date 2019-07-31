@@ -25,7 +25,24 @@ class Navbar extends Component{
         })
     }
 
+    getCartTotal = () => {
+
+        try {
+            let cart = JSON.parse(localStorage.getItem("cart"));
+            let cartTotal = cart.reduce((total, curr) => total + curr.count, 0);
+            if(cartTotal <= 0) {
+                return "";
+            } else {
+                return `(${cartTotal})`;
+            }
+        }
+        catch (e){
+            return "";
+        }
+    }
+
     render(){
+
         return (
             <div>
                 <div className={`dropDown-${this.state.ham}`}>
@@ -45,7 +62,7 @@ class Navbar extends Component{
                         <div className="hamburger" id="burger"><FontAwesomeIcon icon={faPizzaSlice} className="burgerToggle"/></div>
                         <Link to="/" className="linkDiv">Home<FontAwesomeIcon icon={faHome} className="navIcon"/></Link>
                         <Link to="/menu" className="linkDiv">Menu<FontAwesomeIcon icon={faClipboardList} className="navIcon"/></Link>
-                        <Link to="/cart" className="linkDiv">Cart<FontAwesomeIcon icon={faShoppingCart} className="navIcon"/></Link>   
+                        <Link to="/cart" className="linkDiv">Cart<FontAwesomeIcon icon={faShoppingCart} className="navIcon"/> {this.getCartTotal()}</Link>   
                     </div>
                 </nav>
             </div>
