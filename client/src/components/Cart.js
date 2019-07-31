@@ -1,14 +1,11 @@
 import React, { Component } from "react";
+import OrderInput from "./OrderInput";
 import axios from "axios";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlusCircle, faMinusCircle } from "@fortawesome/free-solid-svg-icons";
-
 
 class Cart extends Component {
 
     constructor(){
         super();
-        console.log(JSON.parse(localStorage.getItem("cart")) )
         this.state = {
             cart: JSON.parse(localStorage.getItem("cart")) || [],
             pizzas: []
@@ -17,10 +14,8 @@ class Cart extends Component {
 
     componentDidMount(){
         if(localStorage.getItem("cart")){
-            
             axios.get("/pizza")
             .then(res => {
-                console.log(res.data)
                 this.setState({
                     pizzas: this.state.cart.map(order => {
                         const foundPizza = res.data.filter(pizza => pizza._id === order._id)
@@ -38,37 +33,37 @@ class Cart extends Component {
         this.props.history.push(route);
     }
 
-    increaseCount = _id => {
+    increaseCount = (_id, ammount) => {
         this.setState({
             cart: this.state.cart.map(order => {
                 if(order._id === _id)
                     return ({
                         _id: _id,
-                        count: order.count + 1
+                        count: order.count + Number(ammount)
                     })
                 else
                     return order        
             }
             )
         }, () => localStorage.setItem("cart", JSON.stringify(this.state.cart)));
-        
     }
 
-    decreaseCount = _id => {
-
-        if(this.state.cart.find(order => order._id === _id).count > 1){
+    decreaseCount = (_id, ammount) => {
+        if(this.state.cart.find(order => order._id === _id).count > 1 && this.state.cart.find(order => order._id === _id).count - ammount > 1){
             this.setState(prevState => ({
                 cart: prevState.cart.map(order => {
                     if(order._id === _id) {
                         return ({
                             _id: _id,
-                            count: order.count - 1
+                            count: order.count - Number(ammount)
                         })
                     }
                     else
                         return order;
                     }
             )}), () => localStorage.setItem("cart", JSON.stringify(this.state.cart)));
+
+        } else if(ammount=""){
 
         } else {
             this.setState({
@@ -99,8 +94,11 @@ class Cart extends Component {
     render(){
         const mappedOrder = this.state.pizzas.map(pizza => <div key={pizza._id}>
                 <p>{`${this.getSizeString(pizza.size)} ${pizza.title} (${this.state.cart.find(order => order._id === pizza._id).count}) - $${(pizza.price * (this.state.cart.find(order => order._id === pizza._id).count)).toLocaleString(undefined, {minimumFractionDigits: 2,maximumFractionDigits: 2})}`} {this.state.cart.find(order => order._id === pizza._id).count !== 1 ? ` ($${pizza.price} each)` : ""} </p>
-                <button className="orderAmont" onClick={() => this.increaseCount(pizza._id)}><FontAwesomeIcon icon={faPlusCircle}/></button>
-                <button className="orderAmont" onClick={() => this.decreaseCount(pizza._id)}><FontAwesomeIcon icon={faMinusCircle}/></button>
+                <OrderInput 
+                    {...pizza} 
+                    increaseCount={this.increaseCount}
+                    decreaseCount={this.decreaseCount}
+                />
                 <button className="orderAmont" onClick={() => this.removeAll(pizza._id)}>Remove All</button>
             </div>);
 

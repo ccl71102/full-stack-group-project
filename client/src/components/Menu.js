@@ -1,7 +1,5 @@
 import React from "react"
 import MenuFrom from "./MenuForm.js"
-// import axios from "axios"
-// import {withPizza} from "../context/PizzaProvider"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPizzaSlice} from "@fortawesome/free-solid-svg-icons"
 const Menu = (props) => {
@@ -33,6 +31,28 @@ const Menu = (props) => {
         addToCart(_id);
         props.history.push("/order");
     }
+
+    const getSize = () => {
+
+        const {pizzas} = props;
+
+        if(pizzas.length <= 0) {
+            return 0;
+        } else if(pizzas.length === 1) {
+                return <p>{`Current display size: ${pizzas[0].size} inches.`}</p>
+        }
+        else {
+            let size = pizzas[0].size;
+            console.log(size)
+            
+            for(let i = 1; i < pizzas.length; i++){
+                if(Number(size) !== Number(pizzas[i].size)) {
+                    return 0;
+                }
+            }
+            return <p>{`Current display size: ${size} inches.`}</p>;
+        }
+    }
     
     const mappedPizzas = props.pizzas.map(pizza => <div key={pizza._id}>
         <h1 className="mappedTitle">{pizza.title}</h1>
@@ -46,7 +66,6 @@ const Menu = (props) => {
                         
                         <div className="menuOrderButton">
                             <button className="orderButton" onClick={() => orderPizza(pizza._id)}>Order Now!</button> 
-                            {/* <span className="spacerText">or</span> */}
                             <button className="addToCart" onClick={() => addToCart(pizza._id)}>Add To Cart!</button>
                         </div>
                         
@@ -59,13 +78,13 @@ const Menu = (props) => {
                 <div className="menuSorter">
                     <MenuFrom getAllPizzasByPrice={props.getAllPizzasByPrice} {...props}/>
                     <h3 className="menueInstruct">Choose Your Size <FontAwesomeIcon icon={faPizzaSlice} className="sizePiont"/></h3>
+                    {getSize() || ""}
                     <div className="sizeSortDiv">
                         <button onClick={() => props.getAllPizzas("12")} className="sortButton">Size: 12 inches</button>
                         <button onClick={() => props.getAllPizzas("14")} className="sortButton">Size: 14 inches</button>
                         <button onClick={() => {props.getAllPizzas("16")}} className="sortButton">Size: 16 inches</button>
                     </div>
                 </div>
-                {/* <div className="menuGrid"> */}
                 <div className={mappedPizzas.length !== 0 ? "menuGrid" : "noResults"}>
                     {mappedPizzas.length !== 0 ? mappedPizzas : <p>There are no results to display. Please refresh the page and try again.</p>}
                 </div>

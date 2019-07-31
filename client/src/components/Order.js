@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlusCircle, faMinusCircle } from "@fortawesome/free-solid-svg-icons";
+import OrderInput from "./OrderInput.js";
 
 class Order extends Component {
 
@@ -18,10 +17,8 @@ class Order extends Component {
 
     componentDidMount(){
         if(localStorage.getItem("cart")){
-            
             axios.get("/pizza")
             .then(res => {
-                console.log(res.data)
                 this.setState({
                     pizzas: this.state.cart.map(order => {
                         const foundPizza = res.data.filter(pizza => pizza._id === order._id)
@@ -76,30 +73,29 @@ class Order extends Component {
         this.props.history.push(route);
     }
 
-    increaseCount = _id => {
+    increaseCount = (_id, ammount) => {
         this.setState({
             cart: this.state.cart.map(order => {
                 if(order._id === _id)
                     return ({
                         _id: _id,
-                        count: order.count + 1
+                        count: order.count + Number(ammount)
                     })
                 else
                     return order        
             }
             )
         }, () => localStorage.setItem("cart", JSON.stringify(this.state.cart)));
-        
     }
 
-    decreaseCount = _id => {
-        if(this.state.cart.find(order => order._id === _id).count > 1){
+    decreaseCount = (_id, ammount) => {
+        if(this.state.cart.find(order => order._id === _id).count > 1 && this.state.cart.find(order => order._id === _id).count - ammount > 1){
             this.setState(prevState => ({
                 cart: prevState.cart.map(order => {
                     if(order._id === _id) {
                         return ({
                             _id: _id,
-                            count: order.count - 1
+                            count: order.count - Number(ammount)
                         })
                     }
                     else
@@ -107,12 +103,14 @@ class Order extends Component {
                     }
             )}), () => localStorage.setItem("cart", JSON.stringify(this.state.cart)));
 
+        } else if(ammount=""){
+
         } else {
-            this.setState({
-                cart: this.state.cart.filter(order => order._id !== _id),
-                pizzas: this.state.pizzas.filter(pizza => pizza._id !== _id)
-            }, () => localStorage.setItem("cart", JSON.stringify(this.state.cart)));
-        }
+                this.setState({
+                    cart: this.state.cart.filter(order => order._id !== _id),
+                    pizzas: this.state.pizzas.filter(pizza => pizza._id !== _id)
+                }, () => localStorage.setItem("cart", JSON.stringify(this.state.cart)));
+            }
     }
 
     removeAll = _id => {
@@ -136,9 +134,11 @@ class Order extends Component {
     render(){
         const mappedOrder = this.state.pizzas.map(pizza => <div key={pizza._id}>
                 <p>{`${this.getSizeString(pizza.size)} ${pizza.title} (${this.state.cart.find(order => order._id === pizza._id).count}) - $${(pizza.price * (this.state.cart.find(order => order._id === pizza._id).count)).toLocaleString(undefined, {minimumFractionDigits: 2,maximumFractionDigits: 2})}`}{this.state.cart.find(order => order._id === pizza._id).count !== 1 ? ` ($${pizza.price} each)` : ""}</p>
-                <button onClick={() => this.increaseCount(pizza._id)} className="reworkOrder"><FontAwesomeIcon icon={faPlusCircle}/></button>
-                <button onClick={() => this.decreaseCount(pizza._id)} className="reworkOrder"><FontAwesomeIcon icon={faMinusCircle}/></button>
-                <button className="orderAmont" onClick={() => this.removeAll(pizza._id)}>Remove All</button>
+                <OrderInput 
+                    {...pizza} 
+                    increaseCount={this.increaseCount}
+                    decreaseCount={this.decreaseCount}
+                />                <button className="orderAmont" onClick={() => this.removeAll(pizza._id)}>Remove All</button>
             </div>);
 
         return(
