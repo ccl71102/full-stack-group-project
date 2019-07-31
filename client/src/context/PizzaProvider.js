@@ -14,7 +14,6 @@ class PizzaProvider extends Component {
     componentDidMount() {
             axios.get("/pizza?size=12")
             .then(res => {
-              console.log(res.data);
               this.setState({
                 pizzas: res.data
               });
@@ -27,7 +26,6 @@ class PizzaProvider extends Component {
         if(size !== "" && size !== "undefined") {
             axios.get(`/pizza?size=${size}`)
             .then(res => {
-                console.log(res.data);
                 this.setState({
                     pizzas: res.data
                 });
@@ -37,7 +35,6 @@ class PizzaProvider extends Component {
         else {
             axios.get(`/pizza`)
             .then(res => {
-                console.log(res.data);
                 this.setState({
                     pizzas: res.data
                 });
@@ -50,7 +47,6 @@ class PizzaProvider extends Component {
 
         axios.get(`/:${_id}`)
         .then(res => {
-            console.log(res.data)
             return res.data;
         })
         .catch(err => console.log(err));
@@ -61,7 +57,6 @@ class PizzaProvider extends Component {
         if((price !== "" || price !== undefined) && (sort !== "" || sort !== "undefined")) {
             axios.get(`/pizza/pricing?price=${price}&sort=${sort}`)
             .then(res => {
-                console.log(res.data);
                 this.setState({
                     pizzas: res.data
                 });
@@ -70,7 +65,6 @@ class PizzaProvider extends Component {
         } else if(price !== "" || price !== "undefined") {
             axios.get(`/pizza/pricing?price=${price}`)
             .then(res => {
-                console.log(res.data);
                 this.setState({
                     pizzas: res.data
                 });
@@ -79,7 +73,6 @@ class PizzaProvider extends Component {
         } else if(sort !== "" || sort !== "undefined") {
             axios.get(`/pizza/pricing?sort=${sort}`)
             .then(res => {
-                console.log(res.data);
                 this.setState({
                     pizzas: res.data
                 });
