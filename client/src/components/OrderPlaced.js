@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 
 class OrderPlaced extends Component {
 
+    componentDidMount(){
+        localStorage.removeItem("cart");
+    }
+
     componentWillUnmount(){
         localStorage.clear();
     }
@@ -52,7 +56,7 @@ class OrderPlaced extends Component {
 
     getDayOfYear = () => {
         let d = new Date();
-        let minutesToAdd = this.getMinutesByCount()
+        let minutesToAdd = this.getMinutesByCount();
         if(minutesToAdd !== 0) {
             d.setMinutes(d.getMinutes() + minutesToAdd); 
         }     
@@ -62,12 +66,10 @@ class OrderPlaced extends Component {
         return `${month} ${day}`
     }
 
-
-
     getTimeOfDay = () => {
 
         let d = new Date();
-        let minutesToAdd = this.getMinutesByCount()
+        let minutesToAdd = this.getMinutesByCount();
         if(minutesToAdd !== 0) {
             d.setMinutes(d.getMinutes() + minutesToAdd); 
         }     
