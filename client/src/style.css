@@ -404,6 +404,14 @@ nav{
     background-color: rgb(153, 0, 0);
 }
 
+.rework{
+    display: inline;
+}
+
+.reworkInput{
+    width: 20px
+}
+
 /* ** Order Page Styling ** */
 
 .orderDiv{
