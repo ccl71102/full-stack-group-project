@@ -32,8 +32,10 @@ class MenuForm extends Component {
         return(
                 <form onSubmit={this.handleSubmit}>
                     <h3 className="formInstruct">To budget input your top price:</h3>
-                    <input type="text" className="menuInput" name="priceSort" onChange={this.handleChange} value={this.state.priceSort} maxLength="5" placeholder="Price (USD)"/>
-                    <button className="bugetButton" type="submit">budget!</button>
+                    <div className="buget">
+                        <input type="text" className="menuInput" name="priceSort" onChange={this.handleChange} value={this.state.priceSort} maxLength="5" placeholder="Price (USD)"/>
+                        <button className="bugetButton" type="submit">budget!</button>
+                    </div>
                 </form>
         )
     }
