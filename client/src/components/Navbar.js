@@ -54,10 +54,9 @@ class Navbar extends Component{
                     <div>
                         <h1 className="logo">full stack pizza</h1>
                     </div>
-                    {/* <div className="contact">
-                        <h5 className="contactInfo">Call: (801) 555-PZZA</h5>
-                        <h5 className="contactInfo">150 South State Street, Salt Lake City, UT 84111</h5>
-                    </div> */}
+                    <div className="contact">
+                        <Link to="/cart"><FontAwesomeIcon icon={faShoppingCart} className="mobileCart"/>{<h6>{this.getCartTotal()}</h6>}</Link>
+                        </div>
                     <div>
                         <div className="hamburger" id="burger"><FontAwesomeIcon icon={faPizzaSlice} className="burgerToggle"/></div>
                         <Link to="/" className="linkDiv">Home<FontAwesomeIcon icon={faHome} className="navIcon"/></Link>
