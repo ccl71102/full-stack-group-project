@@ -15,8 +15,8 @@ h1{
 }
 
 p, h2{
-    font-size: 25px;
-    font-family: AmaticR;
+    font-size: 18px;
+    font-family: KalamL;
 }
 
 
@@ -35,6 +35,16 @@ p, h2{
 @font-face{
     font-family: AmaranthI;
     src: url(./fonts/Amaranth-RegularItalic.ttf)
+}
+
+@font-face{
+    font-family: KalamR;
+    src: url(./fonts/Kalam-Regular.ttf)
+}
+
+@font-face{
+    font-family: KalamL;
+    src: url(./fonts/Kalam-Light.ttf)
 }
 
 /* ** dropDown Styling ** */
@@ -84,8 +94,13 @@ nav{
     height: 10vh;
     z-index: 100;
     min-width: 375px;
-    text-shadow: 2px 3px black;
+    /* text-shadow: 2px 3px black; */
     font-family: AmaticB;
+}
+
+.logo{
+    color: white;
+    margin-left: 10px
 }
 
 .navIcon{
@@ -161,7 +176,7 @@ nav{
 }
 
 .menueInstruct{
-    margin-top: 17px;
+    margin-top: 15px;
     font-family: AmaticB;
 }
 
@@ -171,11 +186,12 @@ nav{
 
 .sortButton{
     background-color: rgba(1, 100, 37, 0); 
-    border: 0;
+    /* border: 0; */
     color: white;
     font-family: AmaticB;
     font-size: 30px;
-    outline: 0 
+    outline: 0; 
+    margin: 5px;
 }
 
 .sortButton:hover{
@@ -195,7 +211,7 @@ nav{
 
 .bugetButton{
     background-color: rgb(0, 104, 38);;
-    border: 0;
+    /* border: 0; */
     color: white;
     font-family: AmaticB;
     font-size: 23px;
@@ -221,10 +237,11 @@ nav{
 }
 
 .mappedTitle{
-    text-align: center;
+    /* text-align: center; */
     margin-top: 20px;
     width: 300px;
     margin-left: 25px;
+    font-size: 45px
 }
 
 .mappedDiv{
@@ -237,13 +254,13 @@ nav{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    margin-top: 20px;
+    margin-top: 15px;
     margin-left: 25px;
-    margin-bottom: 10px;
+    margin-bottom: 40px;
 }
 
 .mappedDescription{
-    margin-top: 50px;
+    margin-top: 40px;
     margin-left: 25px;
 }
 
@@ -253,11 +270,17 @@ nav{
     font-family: AmaranthI;
 }
 
+.menuOrderButton{
+    display: flex;
+    flex-direction: column;
+}
+
 .orderButton{
+    margin: auto;
     margin-top: 20px;
     margin-left: 20px;
     background-color: rgba(0, 104, 38, 0); 
-    border: 0;
+    /* border: 0; */
     font-family: AmaticB;
     color: white;
     font-size: 30px;
@@ -274,14 +297,16 @@ nav{
 }
 
 .addToCart{
+    margin: auto;
     margin-top: 20px;
-    margin-left: 3px;
+    margin-left: 20px;
     background-color: rgba(0, 104, 38, 0); 
-    border: 0;
+    /* border: 0; */
     font-family: AmaticB;
     color: white;
     font-size: 30px;
-    outline: 0 
+    outline: 0 ;
+    
 }
 
 .addToCart:hover{
@@ -310,12 +335,12 @@ nav{
 
 .orderAmont{
     background-color: rgba(2, 116, 7, 0);
-    border: none;
+    /* border: none; */
     outline: 0;
     font-family: AmaticB;
     color: white;
     font-size: 20px;
-    margin-top: 10px; 
+    margin: 10px; 
 }
 
 .orderAmont:hover{
@@ -324,7 +349,7 @@ nav{
 
 .placeOrder{
     background-color: rgba(2, 116, 7, 0);
-    border: none;
+    /* border: none; */
     outline: 0;
     font-family: AmaticB;
     color: white;
@@ -354,14 +379,14 @@ nav{
 
 .reworkOrder{
     background-color: rgba(2, 116, 7, 0);
-    border: none;
+    /* border: none; */
     outline: 0;
     font-family: AmaticB;
     color: white;
     font-size: 20px;
     margin: auto;
     margin-top: 3px;
-    margin-bottom: 10px;
+    margin: 10px;
 }
 
 .reworkOrder:hover{
@@ -381,7 +406,7 @@ nav{
 
 .goToCheckout{
     background-color: rgba(2, 116, 7, 0);
-    border: none;
+    /* border: none; */
     outline: 0;
     font-family: AmaticB;
     color: white;
@@ -411,13 +436,13 @@ nav{
 
 .chekoutButtons{
     background-color: rgba(2, 116, 7, 0);
-    border: none;
+    /* border: none; */
     outline: 0;
     font-family: AmaticB;
     color: white;
     font-size: 25px;
     margin: auto;
-    margin-top: 10px;
+    margin: 10px;
 }
 
 .chekoutButtons:hover{
@@ -513,6 +538,32 @@ nav{
     .mappedDescription{
         margin-top: 20px;
         margin-left: 20px;
+    }
+
+    /* ** Menu Pager ** */
+
+    .mappedTitle{
+        text-align: center;
+        margin-top: 35px;
+    }
+
+    .sizeSortDiv{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .sortButton{
+        margin: 5px;
+    }
+
+    .pizzaImg{
+        margin-bottom: 0
+    }
+
+    .menuOrderButton{
+        display: unset;
     }
 }
 

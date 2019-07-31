@@ -17,7 +17,7 @@ const Menu = (props) => {
                 cart.push(itemToUpdate);
                 localStorage.setItem("cart", JSON.stringify(cart));
                 if(!isQuickCheckout){
-                    alert(`${title} has been added to your cart.`)
+                    // alert(`${title} has been added to your cart.`)
                 }
 
             } else {
@@ -25,7 +25,7 @@ const Menu = (props) => {
                 cart.push({_id: _id, count: 1});
                 localStorage.setItem("cart", JSON.stringify(cart));
                 if(!isQuickCheckout){
-                    alert(`${title} has been added to your cart.`)
+                    // alert(`${title} has been added to your cart.`)
                 }
             }
         } else {
@@ -33,7 +33,7 @@ const Menu = (props) => {
             cart.push({_id: _id, count: 1});
             localStorage.setItem("cart", JSON.stringify(cart));
             if(!isQuickCheckout){
-                alert(`${title} has been added to your cart.`)
+                // alert(`${title} has been added to your cart.`)
             }
         }
     }
@@ -52,9 +52,13 @@ const Menu = (props) => {
                 <div>
                     <h2 className="mappedDescription">{pizza.description}</h2>
                     <h4 className="mappedSize">{pizza.size} inches / ${pizza.price}</h4>
-                    <button className="orderButton" onClick={() => orderPizza(pizza._id)}>Order Now!</button> 
-                    <span className="spacerText">or</span>
-                    <button className="addToCart" onClick={() => addToCart(pizza._id, pizza.title, false)}>Add To Cart!</button>
+                        
+                        <div className="menuOrderButton">
+                            <button className="orderButton" onClick={() => orderPizza(pizza._id)}>Order Now!</button> 
+                            {/* <span className="spacerText">or</span> */}
+                            <button className="addToCart" onClick={() => addToCart(pizza._id, pizza.title, false)}>Add To Cart!</button>
+                        </div>
+                        
                 </div> 
            </div>
         </div>)
@@ -62,11 +66,13 @@ const Menu = (props) => {
         return(
             <div className="menuDiv">
                 <div className="menuSorter">
-                    <h3 className="menueInstruct">Choose Your Size <FontAwesomeIcon icon={faPizzaSlice} className="sizePiont"/></h3>
-                    <button onClick={() => props.getAllPizzas("12")} className="sortButton">Size: 12 inches</button>
-                    <button onClick={() => props.getAllPizzas("14")} className="sortButton">Size: 14 inches</button>
-                    <button onClick={() => {props.getAllPizzas("16")}} className="sortButton">Size: 16 inches</button>
                     <MenuFrom getAllPizzasByPrice={props.getAllPizzasByPrice} {...props}/>
+                    <h3 className="menueInstruct">Choose Your Size <FontAwesomeIcon icon={faPizzaSlice} className="sizePiont"/></h3>
+                    <div className="sizeSortDiv">
+                        <button onClick={() => props.getAllPizzas("12")} className="sortButton">Size: 12 inches</button>
+                        <button onClick={() => props.getAllPizzas("14")} className="sortButton">Size: 14 inches</button>
+                        <button onClick={() => {props.getAllPizzas("16")}} className="sortButton">Size: 16 inches</button>
+                    </div>
                 </div>
                 {/* <div className="menuGrid"> */}
                 <div className={mappedPizzas.length !== 0 ? "menuGrid" : "noResults"}>

@@ -34,10 +34,13 @@ class Navbar extends Component{
                     <Link to="/cart" className="dropLink">Cart</Link>
                 </div>
                 <nav>
-                    <div className="contact">
+                    <div>
+                        <h1 className="logo">full stack pizza</h1>
+                    </div>
+                    {/* <div className="contact">
                         <h5 className="contactInfo">Call: (801) 555-PZZA</h5>
                         <h5 className="contactInfo">150 South State Street, Salt Lake City, UT 84111</h5>
-                    </div>
+                    </div> */}
                     <div>
                         <div className="hamburger" id="burger"><FontAwesomeIcon icon={faPizzaSlice} className="burgerToggle"/></div>
                         <Link to="/" className="linkDiv">Home<FontAwesomeIcon icon={faHome} className="navIcon"/></Link>

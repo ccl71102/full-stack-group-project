@@ -6,7 +6,7 @@ const Home = (props) => {
         <div className="homeDiv">
             <DemoCarousel/>
             <div className="homeText">
-                <h1>Full Stack Pizza</h1><br/>
+                {/* <h1>Full Stack Pizza</h1><br/> */}
                 <p>Three full stack coders opened Full Stack Pizza on July 26, 2019.</p><br/>
                 <p>Each Pizza is hancrafted by the master himself, Eric Mauerman, 
                     who spent over 29 years in Florence Italy mastering his pizza. 
