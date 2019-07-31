@@ -103,8 +103,8 @@ class Order extends Component {
                     }
             )}), () => localStorage.setItem("cart", JSON.stringify(this.state.cart)));
 
-        } else if(ammount=""){
-
+        } else if(ammount === ""){
+                //do nothing
         } else {
                 this.setState({
                     cart: this.state.cart.filter(order => order._id !== _id),
