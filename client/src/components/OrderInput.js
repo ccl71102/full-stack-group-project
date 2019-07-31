@@ -23,14 +23,16 @@ class OrderInput extends Component {
     render(){
         return (
                 <> 
+                    <p className="rework">Re-work Order:</p>
                     <button className="orderAmont" onClick={() => this.props.increaseCount(this.props._id, this.state.ammount)}><FontAwesomeIcon icon={faPlusCircle}/></button>
                     <input  onChange={this.handleChange} 
                             type="number" 
                             name="ammount" 
-                            value={this.state.ammount || ""}
-                            placeholder="Ammount To Change"
+                            value={this.state.ammount || 0}
+                            // placeholder="Ammount To Change"
                             min="0"
                             max="1000000" 
+                            className= "reworkInput"
                     />
                     <button className="orderAmont" onClick={() => this.props.decreaseCount(this.props._id, this.state.ammount)}><FontAwesomeIcon icon={faMinusCircle}/></button> 
                 </>
