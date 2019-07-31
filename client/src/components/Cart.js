@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlusCircle, faMinusCircle } from "@fortawesome/free-solid-svg-icons";
 
 
 class Cart extends Component {
@@ -76,6 +78,13 @@ class Cart extends Component {
         }
     }
 
+    removeAll = _id => {
+        this.setState({
+            cart: this.state.cart.filter(order => order._id !== _id),
+            pizzas: this.state.pizzas.filter(pizza => pizza._id !== _id)
+        }, () => localStorage.setItem("cart", JSON.stringify(this.state.cart)));
+    }
+
     getSizeString = size => {
         if(size === "12")
             return "Small"
@@ -88,11 +97,11 @@ class Cart extends Component {
     }
 
     render(){
-
         const mappedOrder = this.state.pizzas.map(pizza => <div key={pizza._id}>
-                <p>{`${this.getSizeString(pizza.size)} ${pizza.title} (${this.state.cart.find(order => order._id === pizza._id).count})`}</p>
-                <button className="orderAmont" onClick={() => this.increaseCount(pizza._id)}>Add</button>
-                <button className="orderAmont" onClick={() => this.decreaseCount(pizza._id)}>Remove</button>
+                <p>{`${this.getSizeString(pizza.size)} ${pizza.title} (${this.state.cart.find(order => order._id === pizza._id).count}) - $${(pizza.price * (this.state.cart.find(order => order._id === pizza._id).count)).toLocaleString(undefined, {minimumFractionDigits: 2,maximumFractionDigits: 2})}`} {this.state.cart.find(order => order._id === pizza._id).count !== 1 ? ` ($${pizza.price} each)` : ""} </p>
+                <button className="orderAmont" onClick={() => this.increaseCount(pizza._id)}><FontAwesomeIcon icon={faPlusCircle}/></button>
+                <button className="orderAmont" onClick={() => this.decreaseCount(pizza._id)}><FontAwesomeIcon icon={faMinusCircle}/></button>
+                <button className="orderAmont" onClick={() => this.removeAll(pizza._id)}>Remove All</button>
             </div>);
 
         return(
