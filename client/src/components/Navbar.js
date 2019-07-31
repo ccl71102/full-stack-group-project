@@ -48,7 +48,7 @@ class Navbar extends Component{
                 <div className={`dropDown-${this.state.ham}`}>
                     <Link to="/" className="dropLink">Home</Link>
                     <Link to="/menu" className="dropLink">Menu</Link>
-                    <Link to="/cart" className="dropLink">Cart</Link>
+                    <Link to="/cart" className="dropLink">{`Cart ${this.getCartTotal()}`}</Link>
                 </div>
                 <nav>
                     <div>
