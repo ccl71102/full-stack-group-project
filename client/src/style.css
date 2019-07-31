@@ -175,8 +175,12 @@ nav{
     text-align: center;
 }
 
-.menueInstruct{
+.noGetSize{
     margin-top: 15px;
+    font-family: AmaticB;
+}
+.menueInstruct{
+    margin-top: 5px;
     font-family: AmaticB;
 }
 
@@ -209,13 +213,21 @@ nav{
     direction: rtl important;
 }
 
+.buget{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
 .bugetButton{
     background-color: rgb(0, 104, 38);;
     /* border: 0; */
     color: white;
     font-family: AmaticB;
     font-size: 23px;
-    outline: 0 
+    outline: 0 ;
+    /* margin-top: 5px */
 }
 
 .bugetButton:hover{
@@ -248,6 +260,16 @@ nav{
     display: flex;
 }
 
+.tint{
+    background-color: rgba(128, 128, 128, 0.363);
+    height: 100%;
+    width: 100%;
+}
+
+.tint:hover{
+    background-color: unset;
+}
+
 .pizzaImg{
     height: 300px;
     width: 300px;
@@ -257,6 +279,13 @@ nav{
     margin-top: 15px;
     margin-left: 25px;
     margin-bottom: 40px;
+    transition: all 1s
+}
+
+.pizzaImg:hover{
+    height: 350px;
+    width: 350px;
+    transition: all 1s
 }
 
 .mappedDescription{
@@ -341,6 +370,7 @@ nav{
     color: white;
     font-size: 20px;
     margin: 10px; 
+    margin-bottom: 40px;
 }
 
 .orderAmont:hover{
@@ -545,6 +575,15 @@ nav{
     .mappedTitle{
         text-align: center;
         margin-top: 35px;
+    }
+
+    .mappedDescription{
+        margin-left: unset;
+        max-width: 60vw;
+    }
+
+    .mappedSize{
+        margin-left: unset
     }
 
     .sizeSortDiv{

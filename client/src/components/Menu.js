@@ -39,18 +39,16 @@ const Menu = (props) => {
         if(pizzas.length <= 0) {
             return 0;
         } else if(pizzas.length === 1) {
-                return <p>{`Current display size: ${pizzas[0].size} inches.`}</p>
+                return <p>{`Size Selected: ${pizzas[0].size} inches.`}</p>
         }
         else {
             let size = pizzas[0].size;
-            console.log(size)
-            
             for(let i = 1; i < pizzas.length; i++){
                 if(Number(size) !== Number(pizzas[i].size)) {
                     return 0;
                 }
             }
-            return <p>{`Current display size: ${size} inches.`}</p>;
+            return <p>{`Size Selected: ${size} inches.`}</p>;
         }
     }
     
@@ -58,7 +56,7 @@ const Menu = (props) => {
         <h1 className="mappedTitle">{pizza.title}</h1>
             <div className="mappedDiv">
                 <div>    
-                    <div style={{backgroundImage: `url(${pizza.imgUrl})`}} className="pizzaImg"></div>
+                    <div style={{backgroundImage: `url(${pizza.imgUrl})`}} className="pizzaImg"><div className="tint"></div></div>
                 </div>
                 <div>
                     <h2 className="mappedDescription">{pizza.description}</h2>
@@ -77,8 +75,10 @@ const Menu = (props) => {
             <div className="menuDiv">
                 <div className="menuSorter">
                     <MenuFrom getAllPizzasByPrice={props.getAllPizzasByPrice} {...props}/>
-                    <h3 className="menueInstruct">Choose Your Size <FontAwesomeIcon icon={faPizzaSlice} className="sizePiont"/></h3>
-                    {getSize() || ""}
+                    <div className={getSize() ? "menueInstruct" : "noGetSize"}>
+                        <h3>Choose Your Size <FontAwesomeIcon icon={faPizzaSlice} className="sizePiont"/></h3>
+                        {getSize() || ""}
+                    </div>
                     <div className="sizeSortDiv">
                         <button onClick={() => props.getAllPizzas("12")} className="sortButton">Size: 12 inches</button>
                         <button onClick={() => props.getAllPizzas("14")} className="sortButton">Size: 14 inches</button>
