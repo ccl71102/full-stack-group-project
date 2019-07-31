@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPizzaSlice} from "@fortawesome/free-solid-svg-icons"
 const Menu = (props) => {
 
-    const addToCart = (_id, title, isQuickCheckout) => {
+    const addToCart = (_id) => {
 
         if(localStorage.getItem("cart")) {
             if(JSON.parse(localStorage.getItem("cart")).find(order => order._id === _id)) {
@@ -16,30 +16,21 @@ const Menu = (props) => {
                 cart = cart.filter(order => order._id !== _id);
                 cart.push(itemToUpdate);
                 localStorage.setItem("cart", JSON.stringify(cart));
-                if(!isQuickCheckout){
-                    // alert(`${title} has been added to your cart.`)
-                }
 
             } else {
                 const cart = JSON.parse(localStorage.getItem("cart"));
                 cart.push({_id: _id, count: 1});
                 localStorage.setItem("cart", JSON.stringify(cart));
-                if(!isQuickCheckout){
-                    // alert(`${title} has been added to your cart.`)
-                }
             }
         } else {
             const cart = [];
             cart.push({_id: _id, count: 1});
             localStorage.setItem("cart", JSON.stringify(cart));
-            if(!isQuickCheckout){
-                // alert(`${title} has been added to your cart.`)
-            }
         }
     }
 
     const orderPizza = _id => {
-        addToCart(_id, "", true);
+        addToCart(_id);
         props.history.push("/order");
     }
     
@@ -56,7 +47,7 @@ const Menu = (props) => {
                         <div className="menuOrderButton">
                             <button className="orderButton" onClick={() => orderPizza(pizza._id)}>Order Now!</button> 
                             {/* <span className="spacerText">or</span> */}
-                            <button className="addToCart" onClick={() => addToCart(pizza._id, pizza.title, false)}>Add To Cart!</button>
+                            <button className="addToCart" onClick={() => addToCart(pizza._id)}>Add To Cart!</button>
                         </div>
                         
                 </div> 
