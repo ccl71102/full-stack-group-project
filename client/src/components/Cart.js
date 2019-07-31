@@ -49,7 +49,7 @@ class Cart extends Component {
     }
 
     decreaseCount = (_id, ammount) => {
-        if(this.state.cart.find(order => order._id === _id).count > 1 && this.state.cart.find(order => order._id === _id).count - ammount > 1){
+        if(this.state.cart.find(order => order._id === _id).count > 1){
             this.setState(prevState => ({
                 cart: prevState.cart.map(order => {
                     if(order._id === _id) {
@@ -63,8 +63,6 @@ class Cart extends Component {
                     }
             )}), () => localStorage.setItem("cart", JSON.stringify(this.state.cart)));
 
-        } else if(ammount === ""){
-            //do nothing
         } else {
             this.setState({
                 cart: this.state.cart.filter(order => order._id !== _id),
