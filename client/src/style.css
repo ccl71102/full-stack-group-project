@@ -19,6 +19,13 @@ p, h2{
     font-family: KalamL;
 }
 
+h6{
+    display: inline;
+    display: none;
+    font-size: 20px;
+    color: white;
+}
+
 
 /* ** Inported fonts ** */
 
@@ -166,6 +173,10 @@ nav{
     color: white;
     height: 90vh;
     overflow: scroll;
+}
+
+.mobileCart{
+    display: none
 }
 
 .menuSorter{
@@ -603,6 +614,16 @@ nav{
 
     .menuOrderButton{
         display: unset;
+    }
+
+    .mobileCart{
+        display: unset;
+        font-size: 25px;
+        color: white;
+    }
+
+    h6{
+        display: unset
     }
 }
 
