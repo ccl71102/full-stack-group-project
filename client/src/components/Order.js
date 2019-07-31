@@ -91,7 +91,6 @@ class Order extends Component {
     }
 
     decreaseCount = _id => {
-
         if(this.state.cart.find(order => order._id === _id).count > 1){
             this.setState(prevState => ({
                 cart: prevState.cart.map(order => {
@@ -114,6 +113,13 @@ class Order extends Component {
         }
     }
 
+    removeAll = _id => {
+        this.setState({
+            cart: this.state.cart.filter(order => order._id !== _id),
+            pizzas: this.state.pizzas.filter(pizza => pizza._id !== _id)
+        }, () => localStorage.setItem("cart", JSON.stringify(this.state.cart)));
+    }
+
     getSizeString = size => {
         if(size === "12")
             return "Small"
@@ -126,17 +132,17 @@ class Order extends Component {
     }
 
     render(){
-
         const mappedOrder = this.state.pizzas.map(pizza => <div key={pizza._id}>
-                <p>{`${this.getSizeString(pizza.size)} ${pizza.title} (${this.state.cart.find(order => order._id === pizza._id).count})`}</p>
-                <button onClick={() => this.increaseCount(pizza._id)} className="reworkOrder">Add</button>
-                <button onClick={() => this.decreaseCount(pizza._id)} className="reworkOrder">Remove</button>
+                <p>{`${this.getSizeString(pizza.size)} ${pizza.title} (${this.state.cart.find(order => order._id === pizza._id).count}) - $${(pizza.price * (this.state.cart.find(order => order._id === pizza._id).count)).toLocaleString(undefined, {minimumFractionDigits: 2,maximumFractionDigits: 2})}`}{this.state.cart.find(order => order._id === pizza._id).count !== 1 ? ` ($${pizza.price} each)` : ""}</p>
+                <button onClick={() => this.increaseCount(pizza._id)} className="reworkOrder">{"(+)"}</button>
+                <button onClick={() => this.decreaseCount(pizza._id)} className="reworkOrder">{"(-)"}</button>
+                <button className="orderAmont" onClick={() => this.removeAll(pizza._id)}>Remove All</button>
             </div>);
 
         return(
             <div className="orderDiv">
                 <h1>Your Order</h1>
-                <div>{mappedOrder}</div>
+                <div>{mappedOrder.length !== 0 ? mappedOrder : <p>There's nothing in your order. Go add some pizzas!</p>}</div>
                 <form onSubmit={this.handleSubmit} className="orderForm">
                     <input required name="name" value={this.state.name} placeholder="Full Name" onChange={this.handleChange} maxLength="30" className="formInputs"/>
                     <input required name="email" value={this.state.email} placeholder="Email Address" maxLength="30" onChange={this.handleChange} className="formInputs"/>
