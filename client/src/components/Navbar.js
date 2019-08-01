@@ -50,6 +50,7 @@ class Navbar extends Component{
                     <Link to="/menu" className="dropLink">Menu</Link>
                     <Link to="/cart" className="dropLink">{`Cart ${this.getCartTotal()}`}</Link>
                 </div>
+                    <div className={`darken-${this.state.ham}`}></div>
                 <nav>
                     <div>
                         <h1 className="logo">full stack pizza</h1>
