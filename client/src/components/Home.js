@@ -16,7 +16,7 @@ const Home = (props) => {
                     each mouthwatering pizza.</p><br/> 
                 <p>Today, the three full stack coders continue to operate in the Salt 
                     Lake City downtown area</p>
-                <button onClick={() => props.history.push("/menu")}>Start Your Order</button>
+                <button onClick={() => props.history.push("/menu")} className="homeButton">Start Your Order!gti </button>
             </div>
         </div>
     )
