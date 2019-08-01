@@ -1,6 +1,5 @@
 import React from "react";
 import Home from "./components/Home.js"
-import About from "./components/About.js"
 import Navbar from "./components/Navbar.js"
 import Menu from "./components/Menu.js"
 import Cart from "./components/Cart.js"
@@ -17,7 +16,6 @@ const App = (props) => {
       <Navbar />
       <Switch>
         <Route exact path="/" render={routerProps => <Home {...routerProps} {...props}/>}/>
-        <Route path="/about" render={routerProps => <About {...routerProps} {...props}/>}/>
         <Route path="/menu" render={routerProps => <Menu {...routerProps} {...props}/>}/>
         <Route path="/cart" render={routerProps => <Cart {...routerProps} {...props}/>}/>
         <Route path="/order" render={routerProps => <Order {...routerProps} {...props}/>}/>
