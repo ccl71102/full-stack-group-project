@@ -6,7 +6,7 @@ class DemoCarousel extends Component {
     render(){
         return (
             <div className="carouseldiv">
-            <Carousel className="carousel" infiniteLoop autoPlay swipeable={false} showThumbs={false} centerMode={false}>
+            <Carousel className="carousel" infiniteLoop autoPlay swipeable={false} showStatus={false} showThumbs={false} centerMode={false}>
                 <div>
                     <img src="http://www.restaurantnews.com/wp-content/uploads/2015/03/Villa-Italian-Kitchen-Introduces-3-Cheese-Pizza-to-Menu.jpg" alt=""/>
                 </div>
