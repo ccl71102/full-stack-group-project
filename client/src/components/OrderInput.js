@@ -10,7 +10,6 @@ const OrderInput = props => {
                     <button className="orderAmont" onClick={() => props.decreaseCount(props._id, 1)}><FontAwesomeIcon icon={faMinusCircle}/></button> 
                 </>
         )
-
 }
 
 export default OrderInput;
