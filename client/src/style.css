@@ -102,6 +102,8 @@ nav{
     z-index: 100;
     min-width: 375px;
     font-family: AmaticB;
+    width: 100%;
+    position: fixed
 }
 
 .logo{
@@ -154,8 +156,8 @@ nav{
     background-image: linear-gradient(rgb(0, 150, 55), rgb(1, 43, 16));
     color: rgb(255, 255, 255);
     min-width: 373px;
-    /* overflow: scroll; */
-    font-family: AmaticR
+    font-family: AmaticR;
+    padding-top: 10vh
 }
 
 .carouseldiv {
@@ -199,7 +201,7 @@ nav{
     background-image: linear-gradient(rgb(0, 105, 39), rgb(0, 80, 29));
     color: white;
     min-height: 90vh;
-    /* overflow: scroll; */
+    padding-top: 10vh;
 }
 
 .mobileCart{
@@ -379,14 +381,14 @@ nav{
 
 .cartDiv{
     background-image: linear-gradient(rgb(0, 105, 39), rgb(0, 80, 29)); 
-    height: 90vh;
+    min-height: 90vh;
     color: white;
     display: flex;
     justify-content: center;
     align-content: center;
     flex-direction: column;
     text-align: center;
-    overflow: scroll;
+    padding-top: 10vh;
 }
 
 .emptyCart{
@@ -416,7 +418,8 @@ nav{
     font-size: 30px;
     margin: auto;
     margin-top: 10px;
-    width: 300px
+    width: 300px;
+    margin-bottom: 20px
 }
 
 .placeOrder:hover{
@@ -435,14 +438,14 @@ nav{
 
 .orderDiv{
     background-image: linear-gradient(rgb(0, 105, 39), rgb(0, 80, 29));  
-    height: 90vh;
-    overflow: scroll;
+    min-height: 90vh;
     color: white;
     display: flex;
     justify-content: center;
     align-content: center;
     flex-direction: column;
     text-align: center;
+    padding-top: 10vh;
 }
 
 .reworkOrder{
@@ -479,7 +482,8 @@ nav{
     font-size: 30px;
     margin: auto;
     margin-top: 10px;
-    width: 300px
+    width: 300px;
+    margin-bottom: 20px;
 }
 
 .goToCheckout:hover{
@@ -490,14 +494,14 @@ nav{
 
 .checkoutDiv{
     background-image: linear-gradient(rgb(0, 105, 39), rgb(0, 80, 29));  
-    height: 90vh;
-    overflow: scroll;
+    min-height: 90vh;
     color: white;
     display: flex;
     justify-content: center;
     align-content: center;
     flex-direction: column;
     text-align: center; 
+    padding-top: 10vh;
 }
 
 .chekoutButtons{
@@ -518,14 +522,14 @@ nav{
 
 .orderPlacedDiv{
     background-image: linear-gradient(rgb(0, 105, 39), rgb(0, 80, 29));  
-    height: 90vh;
-    overflow: scroll;
+    min-height: 90vh;
     color: white;
     display: flex;
     justify-content: center;
     align-content: center;
     flex-direction: column;
     text-align: center;
+    padding-top: 10vh;
 }
 
 .goHome{
