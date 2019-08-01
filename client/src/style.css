@@ -54,6 +54,7 @@ h6{
     src: url(./fonts/Kalam-Light.ttf)
 }
 
+
 /* ** dropDown Styling ** */
 
 .dropDown-false{
@@ -89,6 +90,7 @@ h6{
     color: rgb(255, 255, 255);
 }
 
+
 /* ** Nav Bar Styling ** */
 
 nav{
@@ -100,7 +102,7 @@ nav{
     align-items: center;
     height: 10vh;
     z-index: 100;
-    min-width: 375px;
+    min-width: 315px;
     font-family: AmaticB;
     width: 100%;
     position: fixed
@@ -434,6 +436,7 @@ nav{
     width: 20px
 }
 
+
 /* ** Order Page Styling ** */
 
 .orderDiv{
@@ -490,6 +493,7 @@ nav{
    background-color: rgb(153, 0, 0);
 }
 
+
 /* ** Checkout Page Styling ** */
 
 .checkoutDiv{
@@ -518,6 +522,7 @@ nav{
     background-color: rgb(153, 0, 0);
 }
 
+
 /* ** Order Placed Page Styling ** */
 
 .orderPlacedDiv{
@@ -537,8 +542,13 @@ nav{
 }
 
 @media only screen and (max-width: 600px){
+   
     
     /* ** Nav Bar ** */
+    
+    .logo{
+        font-size: 30px
+    }
 
     .contact{
         display: flex;
@@ -556,7 +566,7 @@ nav{
     .hamburger{
         display: unset;
         color: white;
-        font-size: 30px;
+        font-size: 20px;
         margin-right: 25px;
     }
 
@@ -607,7 +617,9 @@ nav{
     .mappedDescription{
         margin-top: 20px;
         margin-left: 20px;
+        text-align: center;
     }
+
 
     /* ** Menu Pager ** */
 
@@ -617,7 +629,8 @@ nav{
     }
 
     .mappedDescription{
-        margin-left: unset;
+        margin: auto;
+        margin-top: 20px;
         max-width: 60vw;
     }
 
@@ -646,12 +659,12 @@ nav{
 
     .mobileCart{
         display: unset;
-        font-size: 25px;
+        font-size: 20px;
         color: white;
+        text-decoration: none;
     }
 
     h6{
         display: unset
     }
 }
-
