@@ -131,18 +131,20 @@ class Order extends Component {
 
     render(){
         const mappedOrder = this.state.pizzas.map(pizza => <div key={pizza._id}>
-                <p>{`${this.getSizeString(pizza.size)} ${pizza.title} (${this.state.cart.find(order => order._id === pizza._id).count}) - $${(pizza.price * (this.state.cart.find(order => order._id === pizza._id).count)).toLocaleString(undefined, {minimumFractionDigits: 2,maximumFractionDigits: 2})}`}{this.state.cart.find(order => order._id === pizza._id).count !== 1 ? ` ($${pizza.price} each)` : ""}</p>
-                <OrderInput 
+                <p>{`${this.getSizeString(pizza.size)} ${pizza.title} (${this.state.cart.find(order => order._id === pizza._id).count})`}{` ($${pizza.price} each)`}<OrderInput 
                     {...pizza} 
                     increaseCount={this.increaseCount}
                     decreaseCount={this.decreaseCount}
-                />                <button className="orderAmont" onClick={() => this.removeAll(pizza._id)}>Remove All</button>
-            </div>);
+                />  
+                <button className="orderAmont" onClick={() => this.removeAll(pizza._id)}>Remove All</button>
+            </p>
+                </div>);
 
         return(
             <div className="orderDiv">
                 <h1>Your Order</h1>
                 <div>{mappedOrder.length !== 0 ? mappedOrder : <p>There's nothing in your order. Go add some pizzas!</p>}</div>
+                <p>{`Subtotal: $${this.state.pizzas.reduce((total, curr) => total + curr.price * this.state.cart.find(order => order._id === curr._id).count, 0).toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2})}`}</p>
                 <form onSubmit={this.handleSubmit} className="orderForm">
                     <input required name="name" value={this.state.name} placeholder="Full Name" onChange={this.handleChange} maxLength="30" className="formInputs"/>
                     <input required name="email" value={this.state.email} placeholder="Email Address" maxLength="30" onChange={this.handleChange} className="formInputs"/>

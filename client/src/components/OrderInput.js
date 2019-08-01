@@ -6,7 +6,6 @@ const OrderInput = props => {
 
         return (
                 <> 
-                    <p className="rework">Re-work Order:</p>
                     <button className="orderAmont" onClick={() => props.increaseCount(props._id, 1)}><FontAwesomeIcon icon={faPlusCircle}/></button>
                     <button className="orderAmont" onClick={() => props.decreaseCount(props._id, 1)}><FontAwesomeIcon icon={faMinusCircle}/></button> 
                 </>

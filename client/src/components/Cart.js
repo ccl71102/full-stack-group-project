@@ -91,19 +91,20 @@ class Cart extends Component {
 
     render(){
         const mappedOrder = this.state.pizzas.map(pizza => <div key={pizza._id}>
-                <p>{`${this.getSizeString(pizza.size)} ${pizza.title} (${this.state.cart.find(order => order._id === pizza._id).count}) - $${(pizza.price * (this.state.cart.find(order => order._id === pizza._id).count)).toLocaleString(undefined, {minimumFractionDigits: 2,maximumFractionDigits: 2})}`} {this.state.cart.find(order => order._id === pizza._id).count !== 1 ? ` ($${pizza.price} each)` : ""} </p>
-                <OrderInput 
+                 <p>{`${this.getSizeString(pizza.size)} ${pizza.title} (${this.state.cart.find(order => order._id === pizza._id).count})`}{` ($${pizza.price} each)`}<OrderInput 
                     {...pizza} 
                     increaseCount={this.increaseCount}
                     decreaseCount={this.decreaseCount}
-                />
+                />  
                 <button className="orderAmont" onClick={() => this.removeAll(pizza._id)}>Remove All</button>
-            </div>);
+            </p>
+                </div>);
 
         return(
             <div className="cartDiv">
                 <h1>Your Cart</h1>
                 <div className="emptyCart">{mappedOrder.length !== 0 ? mappedOrder : "Your cart is lonely. :( "}</div>
+                <p>{`Subtotal: $${this.state.pizzas.reduce((total, curr) => total + curr.price * this.state.cart.find(order => order._id === curr._id).count, 0).toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2})}`}</p>
                 <div>
                     <button className="placeOrder" onClick={this.state.pizzas.length !== 0 ? () => this.handleRoute("/order") : () => this.handleRoute("/menu")}>{this.state.pizzas.length !== 0 ? "Proceed To Order Page" : "Go Back To Menu"}</button>
                 </div>

@@ -15,7 +15,8 @@ const Home = (props) => {
                     replicated. In his custom brick oven, Eric has articulated 
                     each mouthwatering pizza.</p><br/> 
                 <p>Today, the three full stack coders continue to operate in the Salt 
-                    Lake City downtown area</p>   
+                    Lake City downtown area</p>
+                <button onClick={() => props.history.push("/menu")}>Start Your Order</button>
             </div>
         </div>
     )
