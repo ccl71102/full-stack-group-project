@@ -194,6 +194,11 @@ nav{
     margin: 5px;
 }
 
+.homeButton:hover{
+    background-color: rgb(153, 0, 0);
+    cursor: pointer;
+}
+
 
 /* ** Footer Styling ** */
 
@@ -202,7 +207,6 @@ nav{
     color: white;
     height: 200px;
     width: 100%;
-    /* min-width: 373px; */
     margin: auto;
     overflow: hidden;
 }
@@ -261,6 +265,7 @@ nav{
 
 .sortButton:hover{
     background-color: rgb(153, 0, 0);
+    cursor: pointer;
 }
 
 .formInstruct{
@@ -291,6 +296,7 @@ nav{
 
 .bugetButton:hover{
     background-color: rgb(153, 0, 0);
+    cursor: pointer;
 }
 
 .menuGrid{
@@ -375,6 +381,7 @@ nav{
 
 .orderButton:hover{
     background-color: rgb(153, 0, 0);
+    cursor: pointer;
 }
 
 .spacerText{
@@ -396,6 +403,7 @@ nav{
 
 .addToCart:hover{
     background-color: rgb(153, 0, 0);
+    cursor: pointer;
 }
 
 
@@ -430,6 +438,7 @@ nav{
 
 .orderAmont:hover{
     background-color: rgb(153, 0, 0);
+    cursor: pointer;
 }
 
 .placeOrder{
@@ -446,6 +455,7 @@ nav{
 
 .placeOrder:hover{
     background-color: rgb(153, 0, 0);
+    cursor: pointer;
 }
 
 .rework{
@@ -484,6 +494,7 @@ nav{
 
 .reworkOrder:hover{
     background-color: rgb(153, 0, 0);
+    cursor: pointer;
 }
 
 .orderForm{
@@ -511,6 +522,7 @@ nav{
 
 .goToCheckout:hover{
    background-color: rgb(153, 0, 0);
+   cursor: pointer;
 }
 
 
@@ -540,6 +552,7 @@ nav{
 
 .chekoutButtons:hover{
     background-color: rgb(153, 0, 0);
+    cursor: pointer;
 }
 
 
