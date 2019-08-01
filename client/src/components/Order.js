@@ -140,11 +140,13 @@ class Order extends Component {
             </p>
                 </div>);
 
+            const subtotal = this.state.pizzas.reduce((total, curr) => total + curr.price * this.state.cart.find(order => order._id === curr._id).count, 0);
+
         return(
             <div className="orderDiv">
                 <h1>Your Order</h1>
                 <div>{mappedOrder.length !== 0 ? mappedOrder : <p>There's nothing in your order. Go add some pizzas!</p>}</div>
-                <p>{`Subtotal: $${this.state.pizzas.reduce((total, curr) => total + curr.price * this.state.cart.find(order => order._id === curr._id).count, 0).toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2})}`}</p>
+                <p>{subtotal ? `Subtotal: $${subtotal.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2})}` : ""}</p>
                 <form onSubmit={this.handleSubmit} className="orderForm">
                     <input required name="name" value={this.state.name} placeholder="Full Name" onChange={this.handleChange} maxLength="30" className="formInputs"/>
                     <input required name="email" value={this.state.email} placeholder="Email Address" maxLength="30" onChange={this.handleChange} className="formInputs"/>
