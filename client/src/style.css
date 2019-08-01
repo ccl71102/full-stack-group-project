@@ -135,6 +135,14 @@ nav{
     display: none;
 }
 
+.homeNav>a,h6{
+    display: none;
+}
+
+.contact>a,h6{
+    display: unset;
+}
+
 
 /* ** Home Page Styling ** */
 

@@ -54,7 +54,7 @@ class Navbar extends Component{
                     <div>
                         <h1 className="logo">full stack pizza</h1>
                     </div>
-                    <div className="contact">
+                    <div className={this.props.location.pathname === "/" ? "homeNav" : "contact"}>
                         <Link to="/cart"><FontAwesomeIcon icon={faShoppingCart} className="mobileCart"/>{<h6>{this.getCartTotal()}</h6>}</Link>
                         </div>
                     <div>
