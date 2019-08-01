@@ -139,8 +139,8 @@ nav{
     display: none;
 }
 
-.contact>a,h6{
-    display: unset;
+.contact>h6{
+    display: none;
 }
 
 
