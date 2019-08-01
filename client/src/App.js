@@ -8,6 +8,7 @@ import Order from "./components/Order.js"
 import OrderPlaced from "./components/OrderPlaced.js"
 import {withPizza} from "./context/PizzaProvider"
 import { Switch, Route } from "react-router-dom"
+import Footer from "./components/Footer.js"
 import "./style.css"
 
 const App = (props) => {
@@ -22,6 +23,7 @@ const App = (props) => {
         <Route path="/checkout" render={routerProps => <Checkout {...routerProps} {...props}/>}/>
         <Route path="/orderplaced" render={routerProps => <OrderPlaced {...routerProps} {...props}/>}/>
       </Switch>
+      <Footer/>
     </div>
   )
 }
