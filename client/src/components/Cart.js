@@ -100,12 +100,14 @@ class Cart extends Component {
             </p>
                 </div>);
 
+        const subtotal = this.state.pizzas.reduce((total, curr) => total + curr.price * this.state.cart.find(order => order._id === curr._id).count, 0);
+
         return(
             <div className="cartDiv">
                 <h1>Your Cart</h1>
                 <div className="emptyCart">{mappedOrder.length !== 0 ? mappedOrder : "Your cart is lonely. :( "}</div>
-                <p>{`Subtotal: $${this.state.pizzas.reduce((total, curr) => total + curr.price * this.state.cart.find(order => order._id === curr._id).count, 0).toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2})}`}</p>
-                <div>
+                <p>{subtotal ? `Subtotal: $${subtotal.toLocaleString(undefined,{minimumFractionDigits: 2,maximumFractionDigits: 2})}` : ""}</p>
+               <div>
                     <button className="placeOrder" onClick={this.state.pizzas.length !== 0 ? () => this.handleRoute("/order") : () => this.handleRoute("/menu")}>{this.state.pizzas.length !== 0 ? "Proceed To Order Page" : "Go Back To Menu"}</button>
                 </div>
             </div>
