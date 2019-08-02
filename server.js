@@ -1,15 +1,15 @@
 const express = require("express");
 const app = express();
-const path = require("path")
+const path = require("path");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
-const PORT = process.env.PORT || 7100
+const PORT = process.env.PORT || 7100;
 
 app.use(morgan("dev"));
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "client", "build")))
+app.use(express.static(path.join(__dirname, "client", "build")));
 
-mongoose.connect("mongodb://localhost:27017/oven",
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/oven",
 {
     useNewUrlParser: true,
     useFindAndModify: false,
@@ -23,7 +23,7 @@ app.use("/pizza", require("./routes/pizzaRouter.js"));
 app.use((err, req, res, next) => {
     console.log(err);
     return res.send({errorMessage: err.message});
-})
+});
 
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
